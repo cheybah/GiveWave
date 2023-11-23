@@ -23,6 +23,9 @@ import { PotdetailsComponent } from './potdetails/potdetails.component';
     PublicpotsComponent,
     PotdetailsComponent
   ],
+  exports: [
+    TopbarComponent
+  ],
   imports: [
     CommonModule,
     HomeRoutingModule
