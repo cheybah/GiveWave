@@ -27,6 +27,9 @@ import { HowitworksComponent } from './howitworks/howitworks.component';
     SeparatorComponent,
     HowitworksComponent
   ],
+  exports: [
+    TopbarComponent
+  ],
   imports: [
     CommonModule,
     HomeRoutingModule
