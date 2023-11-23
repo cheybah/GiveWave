@@ -10,6 +10,8 @@ import { ContactComponent } from './contact/contact.component';
 import { AboutComponent } from './about/about.component';
 import { PublicpotsComponent } from './publicpots/publicpots.component';
 import { PotdetailsComponent } from './potdetails/potdetails.component';
+import { SeparatorComponent } from './separator/separator.component';
+import { HowitworksComponent } from './howitworks/howitworks.component';
 
 
 @NgModule({
@@ -21,7 +23,9 @@ import { PotdetailsComponent } from './potdetails/potdetails.component';
     ContactComponent,
     AboutComponent,
     PublicpotsComponent,
-    PotdetailsComponent
+    PotdetailsComponent,
+    SeparatorComponent,
+    HowitworksComponent
   ],
   exports: [
     TopbarComponent
