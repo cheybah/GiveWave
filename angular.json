@@ -25,9 +25,59 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "src/assets/css/style.css",
+              "src/assets/vendor/aos/aos.css",
+              "src/assets/vendor/bootstrap/css/bootstrap-grid.css",
+              "src/assets/vendor/bootstrap/css/bootstrap-grid.min.css",
+              "src/assets/vendor/bootstrap/css/bootstrap-grid.rtl.css",
+              "src/assets/vendor/bootstrap/css/bootstrap-grid.rtl.min.css",
+              "src/assets/vendor/bootstrap/css/bootstrap-reboot.css",
+              "src/assets/vendor/bootstrap/css/bootstrap-reboot.min.css",
+              "src/assets/vendor/bootstrap/css/bootstrap-reboot.rtl.css",
+              "src/assets/vendor/bootstrap/css/bootstrap-reboot.rtl.min.css",
+              "src/assets/vendor/bootstrap/css/bootstrap-utilities.css",
+              "src/assets/vendor/bootstrap/css/bootstrap-utilities.min.css",
+              "src/assets/vendor/bootstrap/css/bootstrap-utilities.rtl.css",
+              "src/assets/vendor/bootstrap/css/bootstrap-utilities.rtl.min.css",
+              "src/assets/vendor/bootstrap/css/bootstrap.css",
+              "src/assets/vendor/bootstrap/css/bootstrap.min.css",
+              "src/assets/vendor/bootstrap/css/bootstrap.rtl.css",
+              "src/assets/vendor/bootstrap/css/bootstrap.rtl.min.css",
+              "src/assets/vendor/bootstrap-icons/bootstrap-icons.css",
+              "src/assets/vendor/bootstrap-icons/bootstrap-icons.min.css",
+              "src/assets/vendor/boxicons/css/animations.css",
+              "src/assets/vendor/boxicons/css/boxicons.css",
+              "src/assets/vendor/boxicons/css/boxicons.min.css",
+              "src/assets/vendor/boxicons/css/transformations.css",
+              "src/assets/vendor/glightbox/css/glightbox.css",
+              "src/assets/vendor/glightbox/css/glightbox.min.css",
+              "src/assets/vendor/glightbox/css/plyr.css",
+              "src/assets/vendor/glightbox/css/plyr.min.css",
+              "src/assets/vendor/swiper/swiper-bundle.min.css",
+              "src/assets/vendor/bootstrap-icons/bootstrap-icons.scss"
+
+
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/js/main.js",
+              "src/assets/vendor/aos/aos.cjs.js",
+              "src/assets/vendor/aos/aos.esm.js",
+              "src/assets/vendor/aos/aos.js",
+              "src/assets/vendor/bootstrap/js/bootstrap.bundle.js",
+              "src/assets/vendor/bootstrap/js/bootstrap.bundle.min.js",
+              "src/assets/vendor/bootstrap/js/bootstrap.esm.js",
+              "src/assets/vendor/bootstrap/js/bootstrap.esm.min.js",
+              "src/assets/vendor/bootstrap/js/bootstrap.js",
+              "src/assets/vendor/bootstrap/js/bootstrap.min.js",
+              "src/assets/vendor/glightbox/js/glightbox.js",
+              "src/assets/vendor/glightbox/js/glightbox.min.js",
+              "src/assets/vendor/isotope-layout/isotope.pkgd.js",
+              "src/assets/vendor/isotope-layout/isotope.pkgd.min.js",
+              "src/assets/vendor/php-email-form/validate.js",
+              "src/assets/vendor/swiper/swiper-bundle.min.js"
+
+            ]
           },
           "configurations": {
             "production": {
@@ -94,5 +144,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "3ba8f490-ad7d-4761-8959-373f75d1d3a4"
   }
 }
