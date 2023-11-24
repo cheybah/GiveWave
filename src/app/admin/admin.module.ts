@@ -5,6 +5,8 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SignupComponent } from './signup/signup.component';
+import {HomeModule} from "../home/home.module";
+import {FormsModule} from "@angular/forms";
 
 
 
@@ -13,13 +15,15 @@ import { SignupComponent } from './signup/signup.component';
     LoginComponent,
     DashboardComponent,
     SignupComponent,
-    
+
 
   ],
   imports: [
     CommonModule,
     AdminRoutingModule,
-    
+    HomeModule,
+    FormsModule,
+
   ]
 })
 export class AdminModule { }
