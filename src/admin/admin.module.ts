@@ -3,13 +3,11 @@ import { CommonModule } from '@angular/common';
 import { HomepageComponent } from './homepage/homepage.component';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
-import {HomeModule} from "../app/home/home.module";
 
 const adminRoutes: Routes = [
   { path: 'homepage', component: HomepageComponent },
-  { path: 'login', component: LoginComponent },
+  //{ path: 'login', component: LoginComponent },
   { path: '', redirectTo: 'homepage', pathMatch: 'full' },
-  // Add more routes for admin functionality as needed
 ];
 
 @NgModule({
@@ -20,7 +18,7 @@ const adminRoutes: Routes = [
     imports: [
         CommonModule,
         RouterModule.forChild(adminRoutes),
-        HomeModule
+        
     ]
 })
 export class AdminModule { }
