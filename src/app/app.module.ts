@@ -5,6 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AdminModule } from '../admin/admin.module';
+import {HttpClientModule} from "@angular/common/http";
 
 const appRoutes: Routes = [
   // Add your app routes here
@@ -16,8 +17,9 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
-    AdminModule, 
-    AppRoutingModule
+    AdminModule,
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
