@@ -2,12 +2,16 @@
 <app-navbar></app-navbar>
 
 <!-- ======= Home Section ======= -->
-<section id="hero" class="d-flex align-items-center">
+<section id="hero" class="d-flex align-items-center"><style>
+  a{
+      cursor: pointer;
+  }
+</style>
   <div class="container position-relative">
     <h1>Your Way For Help</h1>
     <h2>We are people who like to help</h2>
     <a class="btn-get-started scrollto" (click)="scrollToSection('publicpots')">Donate</a>
-    <a  class="btn-get-started scrollto">Start Campaign</a>
+    <a  class="btn-get-started scrollto" [routerLink]="['/login']">Start Campaign</a>
   </div>
 </section>
 <app-publicpots></app-publicpots>

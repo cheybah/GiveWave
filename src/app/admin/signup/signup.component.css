@@ -15,6 +15,7 @@ body {
     box-sizing: border-box;
     background: rgba(0, 0, 0, 0.6);
     border-radius: 0.625rem;
+    margin-top : 20px;
   }
   
   .box h2 {
@@ -57,7 +58,7 @@ body {
   .box .inputBox input:not([value=""]) ~ label {
     top: -1.125rem;
     left: 0;
-    color:rgb(148, 141, 141);
+    color: rgb(148, 141, 141);
     font-size: 0.75rem;
   }
   
@@ -72,11 +73,12 @@ body {
     font-size: 1rem;
     display: block; /* Set display to block to make it a block-level element */
     margin: 0 auto; /* Center block-level element horizontally */
-    margin-top: 20px;
   }
+
+  
   
   .box input[type="submit"]:hover {
-    background-color:rgb(173, 42, 42);
+    background-color: rgb(173, 42, 42);
   }
 
 
@@ -107,7 +109,7 @@ body {
   .signup-link {
     font-size: 12px;
     color: #fff;
-    margin-top: 10px;
+    margin-top: 15px;
     text-align: center !important;
 
   }
@@ -123,4 +125,7 @@ body {
   .forgot-password a:hover {
     text-decoration: underline;
   }
-  
+  .container {
+    height: 80vh; /* Adjust the height as needed */
+    overflow-y: auto;
+  }
