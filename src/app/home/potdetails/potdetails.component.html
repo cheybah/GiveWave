@@ -1,1 +1,41 @@
-<p>potdetails works!</p>
+<app-topbar></app-topbar>
+<section *ngIf="pot" class="pot-details">
+  <div class="pot-header">
+    <h2>{{ pot.title }}</h2>
+    <img [src]="pot.img_source" alt="{{ pot.title }}" />
+  </div>
+  <div class="pot-body">
+    <p>{{ pot.description }}</p>
+    <p>
+      Category: {{ pot.category }}<br>
+      Montant actuel: {{ pot.current_amount }}<br>
+      Montant cible: {{ pot.target_amount }}<br>
+      Nombre de contributeurs: {{ pot.contributors.length }}<br>
+      Date limite: {{ pot.deadline | date:'longDate' }}
+    </p>
+  </div>
+  <div class="pot-footer">
+    <form>
+      <div class="form-group">
+        <label for="contribution">Montant de la contribution :</label>
+        <input type="number" class="form-control" id="contribution" name="contribution">
+      </div>
+      <div class="form-group">
+        <label for="card">Sélectionnez la carte :</label><br>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="card" id="card1" value="card1">
+          <label class="form-check-label" for="card1">
+            Carte 1
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="card" id="card2" value="card2">
+          <label class="form-check-label" for="card2">
+            Carte 2
+          </label>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary" (click)="redirectToClickToPay()">Soumettre</button>
+    </form>
+  </div>
+</section>

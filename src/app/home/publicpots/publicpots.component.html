@@ -6,10 +6,10 @@
   </div>
 </section>
 <section class="articles">
-  <article *ngFor="let pot of pots">
+  <article *ngFor="let pot of pots" [routerLink]="['/pot-details', pot.id]" >
     <div class="article-wrapper">
       <figure>
-        <img [src]="pot.imgSrc" alt="" />
+        <img [src]="pot.img_source" alt="" />
       </figure>
       <div class="article-body">
         <h2>{{ pot.title }}</h2>
@@ -17,10 +17,11 @@
           {{ pot.description }}
         </p>
         <p>
-          Montant actuel: {{ pot.amount }}<br>
-          Montant cible: {{ pot.targetAmount }}<br>
-          Nombre de contributeurs: {{ pot.nbrContributor }}<br>
-          Date limite: {{ pot.deadlineDate | date:'longDate' }}
+          Category: {{ pot.category }}<br>
+          Montant actuel: {{ pot.current_amount }}<br>
+          Montant cible: {{ pot.target_amount }}<br>
+          Nombre de contributeurs: {{ pot.contributors.length }}<br>
+          Date limite: {{ pot.deadline | date:'longDate' }}
         </p>
         <a href="#" class="read-more">
           Read more <span class="sr-only">about {{ pot.title }}</span>

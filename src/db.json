@@ -1,0 +1,72 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "John",
+      "lastname": "Doe",
+      "email": "john.doe@example.com",
+      "password": "password123",
+      "bank_info": "1234-5678-9101"
+    },
+    {
+      "id": 2,
+      "name": "Jane",
+      "lastname": "Doe",
+      "email": "jane.doe@example.com",
+      "password": "password456",
+      "bank_info": "2345-6789-1011"
+    }
+  ],
+  "contributors": [
+    {
+      "id": 1,
+      "name": "Contributor1",
+      "email": "contributor1@example.com",
+      "bank_info": "3456-7890-1112"
+    },
+    {
+      "id": 2,
+      "name": "Contributor2",
+      "email": "contributor2@example.com",
+      "bank_info": "4567-8901-1122"
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "nom": "Sport"
+    },
+    {
+      "id": 2,
+      "nom": "Education"
+    }
+  ],
+  "pots": [
+    {
+      "id": 1,
+      "title": "Sports Event",
+      "description": "Funding for a local sports event",
+      "category": "Sports",
+      "target_amount": 5000,
+      "current_amount": 2500,
+      "owner": 1,
+      "contributors": [1, 2],
+      "img_source": "https://picsum.photos/id/103/800/450",
+      "deadline": "2023-12-31",
+      "start_date": "2023-01-01"
+    },
+    {
+      "id": 2,
+      "title": "Education Fund",
+      "description": "Supporting local schools",
+      "category": "Education",
+      "target_amount": 10000,
+      "current_amount": 7500,
+      "owner": 2,
+      "contributors": [1],
+      "img_source": "https://picsum.photos/id/1005/800/450",
+      "deadline": "2023-11-30",
+      "start_date": "2023-01-15"
+    }
+  ]
+}

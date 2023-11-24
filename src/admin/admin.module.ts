@@ -6,6 +6,8 @@ import { LoginComponent } from './login/login.component';
 
 const adminRoutes: Routes = [
   { path: 'homepage', component: HomepageComponent },
+  { path: 'login', component: LoginComponent },
+  // Add more routes for admin functionality as needed
   //{ path: 'login', component: LoginComponent },
   { path: '', redirectTo: 'homepage', pathMatch: 'full' },
 ];
@@ -18,7 +20,7 @@ const adminRoutes: Routes = [
     imports: [
         CommonModule,
         RouterModule.forChild(adminRoutes),
-        
+
     ]
 })
 export class AdminModule { }
