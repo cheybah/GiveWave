@@ -30,4 +30,9 @@ export class PotdetailsComponent implements OnInit {
   redirectToClickToPay() {
     this.router.navigate(['/click-to-pay', this.pot.id]);
   }
+
+  calculateProgress(pot: any): string {
+    const progress = (pot.current_amount / pot.target_amount) * 100;
+    return progress + '%';
+  }
 }
