@@ -13,15 +13,17 @@
       </figure>
       <div class="article-body">
         <h2>{{ pot.title }}</h2>
-        <p>
+        <p style="font-size: 0.9rem; font-style: italic;">
           {{ pot.description }}
         </p>
         <p>
-          Category: {{ pot.category }}<br>
-          Montant actuel: {{ pot.current_amount }}<br>
-          Montant cible: {{ pot.target_amount }}<br>
-          Nombre de contributeurs: {{ pot.contributors.length }}<br>
-          Date limite: {{ pot.deadline | date:'longDate' }}
+          <span class="progress-bar">
+            <span class="progress-indicator" [style.width]="calculateProgress(pot)"></span>
+          </span>  
+          <span class="amount-label"><i class="bi bi-bullseye"></i>&nbsp;Target: {{ pot.target_amount }}</span>
+          <span class="amount-label"><i class="bi bi-cash-stack"></i>&nbsp;Current: {{ pot.current_amount }}</span><br>
+          <br>
+          <span class="amount-label"><i class="bi bi-calendar-check"></i>&nbsp;Deadline: {{ pot.deadline | date:'longDate' }}</span>
         </p>
         <a href="#" class="read-more">
           Read more <span class="sr-only">about {{ pot.title }}</span>

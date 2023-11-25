@@ -510,7 +510,7 @@ h6 {
 # Sections General
 --------------------------------------------------------------*/
 section {
-  padding: 60px 0;
+  padding: 50px 0;
   overflow: hidden;
 }
 
@@ -1082,6 +1082,7 @@ section {
 .team .member {
   text-align: center;
   margin-bottom: 20px;
+  margin-right: 10px; /* Add margin to the right */
   box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.1);
   padding: 30px 20px;
   background: #fff;
@@ -1101,7 +1102,6 @@ section {
 
 .team .member span {
   font-style: italic;
-  display: block;
   font-size: 13px;
 }
 

@@ -5,7 +5,7 @@ article {
   --link-icon-opacity: 0;
   position: relative;
   border-radius: 16px;
-  box-shadow: none;
+  box-shadow: 10px 10px 20px rgba(77, 75, 75, 0.4); /* Add box shadow */
   background: #fff;
   transform-origin: center;
   transition: all 0.4s ease-in-out;
@@ -23,9 +23,10 @@ article a::after {
 /* basic article elements styling */
 article h2 {
   margin: 0 0 18px 0;
-  font-family: "Bebas Neue", cursive;
+  font-weight: bold;
+  font-family: "Tahoma", sans-serif; /* Change font to a regular one */
   font-size: 1.9rem;
-  letter-spacing: 0.06em;
+  letter-spacing: 0;
   color: var(--title-color);
   transition: color 0.3s ease-out;
 }
@@ -52,11 +53,11 @@ article a {
   display: inline-flex;
   align-items: center;
   text-decoration: none;
-  color: #28666e;
+  color: rgb(110, 40, 40);
 }
 
 article a:focus {
-  outline: 1px dotted #28666e;
+  outline: 1px dotted rgb(110, 40, 40);
 }
 
 article a .icon {
@@ -72,10 +73,10 @@ article a .icon {
 /* using the has() relational pseudo selector to update our custom properties */
 article:has(:hover, :focus) {
   --img-scale: 1.1;
-  --title-color: #28666e;
+  --title-color: rgb(110, 40, 40);
   --link-icon-translate: 0;
   --link-icon-opacity: 1;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+  box-shadow: 10px 10px 40px rgba(77, 75, 75, 0.4); /* Adjust box shadow on hover/focus */
 }
 
 
@@ -92,7 +93,7 @@ Generic layout (demo looks)
 body {
   margin: 0;
   padding: 48px 0;
-  font-family: "Figtree", sans-serif;
+  font-family: "Arial", sans-serif; /* Change font to a regular one */
   font-size: 1.2rem;
   line-height: 1.6rem;
   background-image: linear-gradient(45deg, #7c9885, #b5b682);
@@ -107,6 +108,7 @@ body {
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 24px;
 }
+
 
 @media screen and (max-width: 960px) {
   article {
@@ -147,3 +149,26 @@ body {
   white-space: nowrap;
   width: 1px;
 }
+
+.progress-bar {
+  display: inline-block;
+  border-radius: 15px;
+  width: 150px; /* Adjust as needed */
+  height: 10px; /* Adjust as needed */
+  border: 1px solid #ccc;
+}
+
+.progress-indicator {
+  display: block;
+  border-radius: 15px;
+  height: 100%;
+  background-color: rgb(110, 40, 40); /* Green color, adjust as needed */
+}
+
+.amount-label {
+  display: inline-block;
+  margin-left: 10px; /* Adjust as needed for spacing */
+  font-size: 14px; /* Adjust as needed */
+  font-weight: 600;
+}
+
