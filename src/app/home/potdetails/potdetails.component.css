@@ -1,0 +1,111 @@
+
+.pot-container {
+    background: rgba(110, 103, 103, 0.7);
+    border-radius: 16px;
+    overflow: hidden;
+    padding: 9px;
+    margin: 13px; /* Add margin as needed */
+  }
+
+  .pot-container1 {
+    background: rgba(241, 238, 238, 0.966);
+    border-radius: 16px;
+    overflow: hidden;
+    padding: 9px;
+    margin: 13px; /* Add margin as needed */
+  }
+
+  .pot-header{
+    color: black;
+  }
+
+  .calen.contributors-label {
+    margin-top: 10px !important; /* Adjust the margin as needed */
+  }
+  
+  .donation-input {
+    display: flex;
+    align-items: center;
+  }
+  
+  .donation-input input {
+    margin-right: 5px; /* Adjust spacing between input and button as needed */
+  }
+  
+  
+  .img{
+    width: 100%;
+    border-bottom: 1px solid #ccc;
+    border-radius: 16px;
+    margin-top: 24px;
+  }
+  
+  .col-lg-6 {
+    padding: 0; /* Remove default padding from Bootstrap col */
+  }
+  
+  .mt-4 {
+    margin-top: 1.5rem;
+  }
+  
+  .progress-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .progress-bar {
+    position: relative;
+    display: inline-block;
+    border-radius: 15px;
+    width: 100%; /* Adjust as needed */
+    height: 10px; /* Adjust as needed */
+    border: 1px solid #ccc;
+  }
+  
+  .progress-indicator {
+    position: absolute;
+    display: block;
+    border-radius: 15px;
+    height: 100%;
+    background-color: rgb(110, 40, 40); /* Green color, adjust as needed */
+  }
+  
+  .amount-label {
+    display: inline-block;;
+    margin-left: 10px; /* Adjust as needed for spacing */
+    font-size: 14px; /* Adjust as needed */
+    font-weight: 600;
+  }
+
+  .amount-left {
+    margin-right: 130px; /* Adjust as needed */
+
+  }
+  
+  .amount-right {
+    margin-left: auto; /* Adjust as needed */
+  }
+
+  .btn-primary{
+    color: white !important;
+    background-color: rgb(110, 40, 40) !important;
+    border-color: rgb(110, 40, 40) !important;
+  }
+
+  .copyright {
+    border-top: 1px solid #262626;
+    text-align: center;
+    background-color: black;
+    width: 100%;
+    color: #fff;
+    padding: 10px;
+    box-sizing: content-box;
+    
+  }
+
+  .description-container {
+    margin-top: 20px; /* Adjust the value as needed */
+  }
+  
+  
