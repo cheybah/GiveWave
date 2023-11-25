@@ -5,7 +5,7 @@
       "name": "John",
       "lastname": "Doe",
       "email": "john.doe@example.com",
-      "password": "password123",
+      "password": "Password123",
       "bank_info": "1234-5678-9101"
     },
     {
@@ -15,6 +15,22 @@
       "email": "jane.doe@example.com",
       "password": "password456",
       "bank_info": "2345-6789-1011"
+    },
+    {
+      "id": 2622,
+      "name": "mehdi",
+      "lastname": "benghazi",
+      "email": "mehdi@gmail.com",
+      "password": "Password1234",
+      "bank_info": "1234567889"
+    },
+    {
+      "id": 6990,
+      "name": "chayma",
+      "lastname": "bah",
+      "email": "bah@gmail.com",
+      "password": "Password1234",
+      "bank_info": ""
     }
   ],
   "contributors": [
