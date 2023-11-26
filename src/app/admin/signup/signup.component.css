@@ -3,11 +3,14 @@ body {
     padding: 0;
     background-size: cover;
     font-family: sans-serif;
+    overflow-y: auto;
+    width: 100%;
+    height: auto;
   }
   
   .box {
     position: absolute;
-    top: 50%;
+    top: 55%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 25rem;
@@ -15,7 +18,7 @@ body {
     box-sizing: border-box;
     background: rgba(0, 0, 0, 0.6);
     border-radius: 0.625rem;
-    margin-top : 20px;
+    margin-top : 40px;
   }
   
   .box h2 {
@@ -129,3 +132,39 @@ body {
     height: 80vh; /* Adjust the height as needed */
     overflow-y: auto;
   }
+
+  .password-input-group {
+    position: relative;
+  }
+  
+  .password-toggle {
+    position: absolute;
+    top: 35%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color : white;
+  }
+
+  .signup-link a{
+    font-size: 14px;
+    color: #f5f5f5;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  .alert-danger {
+    color: rgb(255, 255, 255);
+    font-size: small;
+    background-color: rgb(110, 40, 40) !important;
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+
+  .alert {
+    --bs-alert-bg: transparent;
+    --bs-alert-padding-x: 0.8rem !important; 
+    --bs-alert-padding-y: 0.3rem !important;
+  
+  }
+  
