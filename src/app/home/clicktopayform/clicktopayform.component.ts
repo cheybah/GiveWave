@@ -6,7 +6,7 @@ import {Pot} from "../../models/Pot";
 @Component({
   selector: 'app-clicktopayform',
   templateUrl: './clicktopayform.component.html',
-  styleUrls: ['./clicktopayform.component.css']
+  styleUrls: ['./clicktopayform.component.css','./form-validation.css']
 })
 export class ClicktopayformComponent {
 

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Renderer2, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-howitworks',
@@ -6,5 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./howitworks.component.css']
 })
 export class HowitworksComponent {
+  constructor(private renderer: Renderer2, private el: ElementRef) { }
 
+  scrollToSection(sectionId: string) {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
 }

@@ -1,41 +1,47 @@
 <app-topbar></app-topbar>
-<section *ngIf="pot" class="pot-details">
-  <div class="pot-header">
-    <h2>{{ pot.title }}</h2>
-    <img [src]="pot.img_source" alt="{{ pot.title }}" />
-  </div>
-  <div class="pot-body">
-    <p>{{ pot.description }}</p>
-    <p>
-      Category: {{ pot.category }}<br>
-      Montant actuel: {{ pot.current_amount }}<br>
-      Montant cible: {{ pot.target_amount }}<br>
-      Nombre de contributeurs: {{ pot.contributors.length }}<br>
-      Date limite: {{ pot.deadline | date:'longDate' }}
-    </p>
-  </div>
-  <div class="pot-footer">
-    <form>
-      <div class="form-group">
-        <label for="contribution">Montant de la contribution :</label>
-        <input type="number" class="form-control" id="contribution" name="contribution">
+
+<section id="potdetails" class="d-flex align-items-center">
+  <div class="container position-relative">
+    <div class="pot-container row">
+      <div class="col-lg-6">
+          <img class="w-100 shadow img" [src]="pot.img_source" alt="" />
+          <div class="pot-container1 p-5 mt-4">
+            <h5>Description</h5>
+            <p>{{ pot.description }}</p>
+          </div>
       </div>
-      <div class="form-group">
-        <label for="card">Sélectionnez la carte :</label><br>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="card" id="card1" value="card1">
-          <label class="form-check-label" for="card1">
-            Carte 1
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="card" id="card2" value="card2">
-          <label class="form-check-label" for="card2">
-            Carte 2
-          </label>
+      <div class="col-lg-6">
+        <div class="pot-container1 p-5 mt-4">
+          <div class="pot-header">
+            <h2><b>{{ pot.title }}</b></h2>
+          </div>
+          <h5 class="mt-4">Category</h5>
+          <p>{{ pot.category }}</p>
+          <h5 class="mt-4">Donation progress</h5>
+          <div class="progress-container">
+            <span class="progress-bar">
+              <span class="progress-indicator" [style.width]="calculateProgress(pot)"></span>
+            </span>
+          </div>
+          <div class="amount-label-container">
+            <span class="amount-label amount-left"><i class="bi bi-cash-stack"></i>&nbsp;Current: {{ pot.current_amount }}</span>
+            <span class="amount-label amount-right"><i class="bi bi-bullseye"></i>&nbsp;Target: {{ pot.target_amount }}</span>
+          </div>
+          <span class="amount-label calen"><i class="bi bi-calendar-check"></i>&nbsp;Deadline: {{ pot.deadline | date:'longDate' }}</span>
+          <br>
+          <span class="amount-label contributors-label"><i class="bi bi-people-fill"></i>&nbsp;Contributors: {{ pot.contributors.length  }}</span>
+          <form>
+            <h5 class="mt-4">Donation amount:</h5>
+            <div class="form-group donation-input">
+              <input type="number" class="form-control" id="contribution" name="contribution">
+              <button type="submit" class="btn btn-primary" (click)="redirectToClickToPay()">Submit</button>
+            </div>
+          </form>
         </div>
       </div>
-      <button type="submit" class="btn btn-primary" (click)="redirectToClickToPay()">Soumettre</button>
-    </form>
+    </div>
   </div>
 </section>
+<div class="copyright">
+  &copy; Copyright <strong><span>GiveWave Co.</span></strong> All Rights Reserved
+</div>

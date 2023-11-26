@@ -13,6 +13,8 @@ import { PotdetailsComponent } from './potdetails/potdetails.component';
 import { SeparatorComponent } from './separator/separator.component';
 import { HowitworksComponent } from './howitworks/howitworks.component';
 import { ClicktopayformComponent } from './clicktopayform/clicktopayform.component';
+import { TeamComponent } from './team/team.component';
+
 
 
 @NgModule({
@@ -27,7 +29,8 @@ import { ClicktopayformComponent } from './clicktopayform/clicktopayform.compone
     PotdetailsComponent,
     SeparatorComponent,
     HowitworksComponent,
-    ClicktopayformComponent
+    ClicktopayformComponent,
+    TeamComponent
   ],
   exports: [
     TopbarComponent,
