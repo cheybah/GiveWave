@@ -24,6 +24,9 @@
                  onkeyup="this.setAttribute('value', this.value);" value="">
           <label>Password</label>
         </div>
+        <div *ngIf="authenticationError" class="alert alert-danger" role="alert">
+          Email or Password invalid
+        </div>
         <div class="additional-links">
           <p class="forgot-password"><a href="#">Did you forget your password?</a></p>
         </div>

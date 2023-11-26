@@ -2,28 +2,36 @@
 <app-topbar></app-topbar>
 
 <!-- ======= login Section ======= -->
-<section id="login" class="d-flex align-items-center">
+<section id="signup" class="d-flex align-items-center">
   <div class="container position-relative">
     <div class="box">
       <h2>Sign Up</h2>
-      <form (submit)="signUp()">
+      <form (submit)="signUp()"  #signupForm="ngForm">
         <div class="inputBox">
-          <input type="text" name="firstName" [(ngModel)]="user.name" required value="">
+          <input type="text" name="firstName" [(ngModel)]="user.name" required pattern="[a-zA-Z]+" #firstName="ngModel" value="">
           <label>First Name</label>
+          <small *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)" class="text-danger">
+            First Name is required and should only contain letters.
+          </small>
         </div>
         <div class="inputBox">
-          <input type="text" name="lastName" [(ngModel)]="user.lastname" required value="">
+          <input type="text" name="lastName" [(ngModel)]="user.lastname" required pattern="[a-zA-Z]+" #lastName="ngModel" value="">
           <label>Last Name</label>
+          <small *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)" class="text-danger">
+            Last Name is required and should only contain letters.
+          </small>
         </div>
         <div class="inputBox">
-          <input type="email" name="email" [(ngModel)]="user.email" required value="">
+          <input type="email" name="email" [(ngModel)]="user.email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" #email="ngModel" value="">
           <label>Email</label>
+          <small *ngIf="user.email && !user.email.match('[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-z]{2,}$')" class="text-danger">Invalid email format</small>
         </div>
         <div class="inputBox">
           <input type="text" name="iban" [(ngModel)]="user.bank_info" required value="">
           <label>IBAN</label>
         </div>
         <div class="inputBox">
+          <div class="password-input-group">
           <input type="password"
                  name="password"
                  [(ngModel)]="user.password"
@@ -33,9 +41,15 @@
                  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                  title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters">
           <label>Password</label>
+          <i class="bi bi-eye password-toggle" (click)="togglePasswordVisibility()"></i>
+        </div>
+        </div>
+        <div *ngIf="errorMessage" class="alert alert-danger mt-2">
+          {{ errorMessage }}
         </div>
         <input type="submit" name="sign-in" value="Sign Up">
       </form>
+
       <div class="additional-links">
         <p class="signup-link">Already signed up? <a [routerLink]="['/login']">Log In!</a></p>
       </div>

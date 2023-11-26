@@ -12,6 +12,8 @@ import {ActivatedRoute, Router} from "@angular/router";
 export class LoginComponent {
   email = '';
   password = '';
+  authenticationError = false; // Add this variable for authentication error
+
 
   constructor(
     private router: Router,
@@ -26,6 +28,7 @@ export class LoginComponent {
       } else {
         console.log('Invalid email or password');
         // Show an error message
+        this.authenticationError = true;
       }
     });
   }
