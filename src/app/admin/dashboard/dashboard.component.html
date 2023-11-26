@@ -1,1 +1,218 @@
-<p>dashboard works!</p>
+<!-- ======= Top Bar ======= -->
+<app-topbar></app-topbar>
+
+<!-- ======= Header ======= -->
+<header id="header" class="d-flex align-items-center">
+  <div class="container d-flex align-items-center justify-content-between">
+    <h1 class="logo"><a href="/home">GiveWave Co.</a></h1>
+    <nav id="navbar" class="navbar">
+      <style>
+        li{
+          cursor: pointer;
+        }
+      </style>
+      <ul>
+        <li><a class="nav-link scrollto active" (click)="scrollToSection('hero')">Home</a></li>
+      </ul>
+      <i class="bi bi-list mobile-nav-toggle"></i>
+    </nav>
+    <!-- .navbar -->
+  </div>
+</header>
+
+<!-- ======= Home Section ======= -->
+<section id="hero" class="d-flex align-items-center">
+  <style>
+    a{
+      cursor: pointer;
+    }
+  </style>
+  <div class="container position-relative">
+    <h1>Welcome, {{user.name}}</h1>
+    <h2>We are people who like to help</h2>
+    <a class="btn-get-started scrollto" (click)="scrollToSection('listeofpot')">Consult your Pots</a>
+    <a  class="btn-get-started scrollto" (click)="scrollToSection('formpot')">Start Campaign</a>
+  </div>
+</section>
+
+<section id="listeofpot" class="publicpots">
+  <div class="section-title">
+    <span>List Pots</span>
+    <h2>List Pots</h2>
+    <p>Check out the available pots for donation. Every penny is worth a change !</p>
+  </div>
+
+  <div class="table-container">
+    <div class="d-flex justify-content-end">
+      <button type="button" class="btn btn-primary" (click)="createPot()">
+        <i class="bi bi-plus-circle fa-2x"></i> Add New Pot
+      </button>
+    </div>
+    <table class="table table-striped">
+      <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Title</th>
+      <th scope="col">Category</th>
+      <th scope="col">Target Amount</th>
+      <th scope="col">Current Amount</th>
+      <th scope="col">Start Date</th>
+      <th scope="col">Deadline</th>
+    </tr>
+    </thead>
+      <tbody>
+    <tr *ngFor="let pot of userPots; index as i">
+      <th scope="row">{{i + 1}}</th>
+      <td>{{pot.title}}</td>
+      <td>{{pot.category}}</td>
+      <td>{{pot.target_amount}}</td>
+      <td>{{pot.current_amount}}</td>
+      <td>{{pot.start_date | date:'dd MMMM yyyy'}}</td>
+      <td>{{pot.deadline | date:'dd MMMM yyyy'}}</td>
+      <td>
+        <button type="button" class="btn btn-primary" (click)="displayPot(pot)">
+          <i class="bi bi-box-arrow-up-right fa-2x"></i>
+        </button>
+        <button type="button" class="btn btn-success" (click)="OpenEditPot(pot)">
+          <i class="bi bi-gear fa-2x"></i>
+        </button>
+        <button type="button" class="btn btn-danger" (click)="deletePot(pot)">
+          <i class="bi bi-trash fa-2x"></i>
+        </button>
+      </td>
+    </tr>
+    </tbody>
+    </table>
+  </div>
+</section>
+
+<app-separator></app-separator>
+
+<!-- add pot form -->
+<section id="formpot" class="publicpots">
+  <div class="section-title">
+    <span>Form Pots</span>
+    <h2>Form Pots</h2>
+    <p>Check out the available pots for donation. Every penny is worth a change !</p>
+  </div>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="card shadow col-lg-8">
+          <div class="card-body">
+            <form (ngSubmit)="onSubmitPot()">
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="title" class="form-label">Title</label>
+                  <input type="text" class="form-control" id="title" [(ngModel)]="newPot.title" name="title">
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="category" class="form-label">Category</label>
+                  <input type="text" class="form-control" id="category" [(ngModel)]="newPot.category" name="category">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="target_amount" class="form-label">Target Amount</label>
+                  <input type="number" class="form-control" id="target_amount" [(ngModel)]="newPot.target_amount" name="target_amount">
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="deadline" class="form-label">Deadline</label>
+                  <input type="date" class="form-control" id="deadline" [(ngModel)]="newPot.deadline" name="deadline">
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="img_source" class="form-label">Image Source</label>
+                <input type="text" class="form-control" id="img_source" [(ngModel)]="newPot.img_source" name="img_source">
+              </div>
+              <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <textarea class="form-control" id="description" [(ngModel)]="newPot.description" name="description"></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+          </div>
+        </div>
+    </div>
+  </div>
+</section>
+
+<!-- display pot modal -->
+<div class="modal fade" id="potModal" tabindex="-1" aria-labelledby="potModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="potModalLabel">{{selectedPot.title}}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!-- Ajoutez ici les détails du pot que vous souhaitez afficher -->
+        <p>{{selectedPot.description}}</p>
+        <p>Category: {{selectedPot.category}}</p>
+        <p>Target Amount: {{selectedPot.target_amount}}</p>
+        <p>Current Amount: {{selectedPot.current_amount}}</p>
+        <p>Start Date: {{selectedPot.start_date | date:'dd MMMM yyyy'}}</p>
+        <p>Deadline: {{selectedPot.deadline | date:'dd MMMM yyyy'}}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- edit pot modal -->
+<div class="modal fade" id="editPotModal" tabindex="-1" aria-labelledby="editPotModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editPotModalLabel">Edit Pot</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="row">
+            <div class="col">
+              <div class="mb-3">
+                <label for="title_e" class="form-label">Title</label>
+                <input type="text" class="form-control" id="title_e" name="title" [(ngModel)]="selectedPot.title">
+              </div>
+            </div>
+            <div class="col">
+              <div class="mb-3">
+                <label for="category_e" class="form-label">Category</label>
+                <input type="text" class="form-control" id="category_e" name="category" [(ngModel)]="selectedPot.category">
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <div class="mb-3">
+                <label for="target_amount_e" class="form-label">Target Amount</label>
+                <input type="number" class="form-control" id="target_amount_e" name="target_amount" [(ngModel)]="selectedPot.target_amount">
+              </div>
+            </div>
+            <div class="col">
+              <div class="mb-3">
+                <label for="deadline_e" class="form-label">Deadline</label>
+                <input type="date" class="form-control" id="deadline_e" name="deadline" [(ngModel)]="selectedPot.deadline">
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="description_e" class="form-label">Description</label>
+            <textarea class="form-control" id="description_e" name="description" [(ngModel)]="selectedPot.description"></textarea>
+          </div>
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click)="updatePot()" data-bs-dismiss="modal">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

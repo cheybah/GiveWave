@@ -16,6 +16,10 @@ export class AuthService {
     return this.http.get(url);
   }
 
+  getUserById(id: number): Observable<User>{
+    const url = `${this.apiUrl}/users/${id}`;
+    return this.http.get<User>(url);
+  }
   signUp(user: User): Observable<any> {
     const url = `${this.apiUrl}/users`;
     return this.http.post(url, user);

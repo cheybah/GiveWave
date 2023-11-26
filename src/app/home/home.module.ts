@@ -33,7 +33,9 @@ import { TeamComponent } from './team/team.component';
     TeamComponent
   ],
   exports: [
-    TopbarComponent
+    TopbarComponent,
+    FooterComponent,
+    SeparatorComponent
   ],
   imports: [
     CommonModule,
