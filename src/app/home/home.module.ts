@@ -30,7 +30,9 @@ import { ClicktopayformComponent } from './clicktopayform/clicktopayform.compone
     ClicktopayformComponent
   ],
   exports: [
-    TopbarComponent
+    TopbarComponent,
+    FooterComponent,
+    SeparatorComponent
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,9 @@
+.table-container {
+  width: 90%; /* Ajustez cette valeur à votre convenance */
+  margin: auto; /* Centrer le tableau sur la page */
+}
+
+.btn {
+  padding: 3px 8px; /* Réduisez la taille du bouton */
+  margin: 0 10px; /* Ajoutez de l'espace entre les boutons */
+}

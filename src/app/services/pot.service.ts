@@ -19,4 +19,21 @@ export class PotService {
     const apiUrl = `${this.baseUrl}/pots/${id}`;
     return this.http.get<Pot>(apiUrl);
   }
+  getUserPots(owner: number): Observable<Pot[]> {
+    const apiUrl = `${this.baseUrl}/pots?owner=${owner}`;
+    return this.http.get<Pot[]>(apiUrl);
+  }
+  createPot(pot: Pot): Observable<Pot> {
+    const apiUrl = `${this.baseUrl}/pots`;
+    return this.http.post<Pot>(apiUrl, pot);
+  }
+  updatePot(pot: Pot): Observable<Pot> {
+    const url = `${this.baseUrl}/pots/${pot.id}`;
+    return this.http.put<Pot>(url, pot);
+  }
+  deletePot(potId: number): Observable<void> {
+    return this.http.delete<void>(`${this.baseUrl}/pots/${potId}`);
+  }
+
+
 }
