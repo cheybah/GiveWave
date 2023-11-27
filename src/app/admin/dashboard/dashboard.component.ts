@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {PotService} from "../../services/pot.service";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute,Router} from "@angular/router";
 import {Pot} from "../../models/Pot";
 import {User} from "../../models/User";
 import {AuthService} from "../../services/auth.service";
@@ -40,7 +40,8 @@ export class DashboardComponent implements OnInit{
   constructor(
     private route: ActivatedRoute,
     private potService: PotService,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ) {}
 
   getUserPots(): void {
@@ -112,6 +113,10 @@ export class DashboardComponent implements OnInit{
     if (element) {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
+  }
+
+  goToHome(): void {
+    this.router.navigate(['/home']);
   }
 
 }

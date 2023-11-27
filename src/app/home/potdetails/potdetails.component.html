@@ -2,6 +2,9 @@
 
 <section id="potdetails" class="d-flex align-items-center">
   <div class="container position-relative">
+    <div class="home-button" (click)="goToHome()">
+      <i class="bi bi-house-door-fill"></i>Home
+    </div>
     <div class="pot-container row">
       <div class="col-lg-6">
           <img class="w-100 shadow img" [src]="pot.img_source" alt="" />
