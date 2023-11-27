@@ -130,7 +130,7 @@ body {
   }
   .container {
     height: 80vh; /* Adjust the height as needed */
-    overflow-y: auto;
+    
   }
 
   .password-input-group {
@@ -168,3 +168,36 @@ body {
   
   }
   
+
+  .home-button {
+    position: absolute;
+    top: -20px;
+    right: 0;
+    padding: 10px;
+    color: rgb(236, 236, 236);
+    font-size: 18px; /* Adjust the font size according to your design */
+    text-decoration: none; /* Remove underline initially */
+    cursor: pointer;
+  }
+  
+  /* Additional styling for the button */
+  .home-button i {
+    margin-right: 3px;
+  }
+
+  .home-button::after {
+    content: '←'; 
+    position: absolute;
+    opacity: 0;
+    transition: opacity 0.3s, text-decoration 0.3s;
+    margin-left: 5px; /* Adjust the spacing between the text and arrow */
+  }
+
+  .home-button:hover {
+    text-decoration: underline; /* Underline on hover */
+  }
+  
+  .home-button:hover::after {
+    opacity: 1;
+  }
+    

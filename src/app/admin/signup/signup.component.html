@@ -1,9 +1,12 @@
 <!-- ======= Top Bar ======= -->
 <app-topbar></app-topbar>
 
-<!-- ======= login Section ======= -->
+<!-- ======= sigup Section ======= -->
 <section id="signup" class="d-flex align-items-center">
   <div class="container position-relative">
+    <div class="home-button" (click)="goToHome()">
+      <i class="bi bi-house-door-fill"></i>Home
+    </div>
     <div class="box">
       <h2>Sign Up</h2>
       <form (submit)="signUp()"  #signupForm="ngForm">

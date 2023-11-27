@@ -54,6 +54,10 @@ export class SignupComponent {
     const passwordInput = document.querySelector('[name="password"]') as HTMLInputElement;
     passwordInput.type = passwordInput.type === 'password' ? 'text' : 'password';
   }
+
+  goToHome(): void {
+    this.router.navigate(['/home']);
+  }
   
 
 }

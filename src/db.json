@@ -66,7 +66,10 @@
       "target_amount": 5000,
       "current_amount": 2500,
       "owner": 1,
-      "contributors": [1, 2],
+      "contributors": [
+        1,
+        2
+      ],
       "img_source": "../assets/img/sports.jpg",
       "deadline": "2023-12-31",
       "start_date": "2023-01-01"
@@ -79,39 +82,12 @@
       "target_amount": 10000,
       "current_amount": 7500,
       "owner": 2,
-      "contributors": [1],
+      "contributors": [
+        1
+      ],
       "img_source": "../assets/img/education.jpg",
       "deadline": "2023-11-30",
       "start_date": "2023-01-15"
-    },
-
-    {
-      "id": 3,
-      "title": "Animal Rescue",
-      "description": "Rescuing tuxedo cat Tom",
-      "category": "Animals",
-      "target_amount": 5000,
-      "current_amount": 4200,
-      "owner": 2,
-      "contributors": [1],
-      "img_source": "../assets/img/animal.jpg",
-      "deadline": "2023-11-30",
-      "start_date": "2023-01-15"
-    },
-    {
-      "id": 3,
-      "title": "testPot",
-      "description": "",
-      "category": "Spor",
-      "target_amount": 1000,
-      "current_amount": 0,
-      "owner": 2622,
-      "contributors": [],
-      "img_source": "",
-      "deadline": "2023-11-26T09:17:00.175Z",
-      "start_date": "2023-11-26T09:17:00.175Z"
     }
-
-
   ]
 }
