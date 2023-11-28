@@ -144,3 +144,36 @@ body {
     --bs-alert-padding-y: 0.3rem !important;
   
   }
+
+  .btn-home {
+    position: absolute;
+    top: -250px; /* Adjust the top distance according to your design */
+    right: 0px; /* Adjust the right distance according to your design */
+    color: rgb(236, 236, 236);
+    background: none;
+    border: none;
+    font-size: 18px; /* Adjust the font size according to your design */
+    text-decoration: none; /* Remove underline initially */
+    cursor: pointer;
+  }
+
+  .btn-home::after {
+    content: '←'; 
+    position: absolute;
+    opacity: 0;
+    transition: opacity 0.3s, text-decoration 0.3s;
+    margin-left: 5px; /* Adjust the spacing between the text and arrow */
+  }
+
+  .btn-home:hover {
+    text-decoration: underline; /* Underline on hover */
+  }
+  
+  .btn-home:hover::after {
+    opacity: 1;
+  }
+  
+  /* Additional styling for the Bootstrap icon (assuming you're using Bootstrap icons) */
+  .btn-home i {
+    margin-right: 3px; /* Adjust the spacing between the icon and text */
+  }

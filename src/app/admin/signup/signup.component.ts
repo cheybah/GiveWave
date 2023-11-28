@@ -53,5 +53,9 @@ export class SignupComponent {
     passwordInput.type = passwordInput.type === 'password' ? 'text' : 'password';
   }
 
+  goToHome(): void {
+    this.router.navigate(['/home']);
+  }
+  
 
 }

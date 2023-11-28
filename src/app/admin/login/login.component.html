@@ -4,6 +4,9 @@
  <!-- ======= login Section ======= -->
  <section id="login" class="d-flex align-items-center">
   <div class="container position-relative">
+    <button (click)="goToHome()" class="btn btn-link btn-home">
+      <i class="bi bi-house-door-fill"></i>Home
+    </button>
     <div class="box">
       <h2>Sign In</h2>
       <form (submit)="signIn()">

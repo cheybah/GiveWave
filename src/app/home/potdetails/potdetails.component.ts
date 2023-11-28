@@ -51,4 +51,8 @@ export class PotdetailsComponent implements OnInit {
     const progress = (pot.current_amount / pot.target_amount) * 100;
     return progress + '%';
   }
+
+  goToHome(): void {
+    this.router.navigate(['/home']);
+  }
 }
