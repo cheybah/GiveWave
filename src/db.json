@@ -38,13 +38,17 @@
       "id": 1,
       "name": "Contributor1",
       "email": "contributor1@example.com",
-      "bank_info": "3456-7890-1112"
+      "bank_info": "3456-7890-1112",
+      "donation_amount": 100,
+      "pot_id": 1
     },
     {
       "id": 2,
       "name": "Contributor2",
       "email": "contributor2@example.com",
-      "bank_info": "4567-8901-1122"
+      "bank_info": "4567-8901-1122",
+      "donation_amount": 100,
+      "pot_id": 1
     }
   ],
   "categories": [

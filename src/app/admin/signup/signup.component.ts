@@ -44,16 +44,14 @@ export class SignupComponent {
   }
 
   validateForm(): boolean {
-    if (!this.user.name || !this.user.lastname || !this.user.email || !this.user.password || !this.user.bank_info) {
-      return false;
-    }
-    return true;
+    return !(!this.user.name || !this.user.lastname || !this.user.email || !this.user.password || !this.user.bank_info);
+
   }
 
   togglePasswordVisibility(): void {
     const passwordInput = document.querySelector('[name="password"]') as HTMLInputElement;
     passwordInput.type = passwordInput.type === 'password' ? 'text' : 'password';
   }
-  
+
 
 }
