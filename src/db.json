@@ -38,13 +38,41 @@
       "id": 1,
       "name": "Contributor1",
       "email": "contributor1@example.com",
-      "bank_info": "3456-7890-1112"
+      "bank_info": "3456-7890-1112",
+      "donation_amount": 100,
+      "pot_id": 1
     },
     {
       "id": 2,
       "name": "Contributor2",
       "email": "contributor2@example.com",
-      "bank_info": "4567-8901-1122"
+      "bank_info": "4567-8901-1122",
+      "donation_amount": 100,
+      "pot_id": 1
+    },
+    {
+      "name": "makrem ben",
+      "email": "mak@mak.co",
+      "bank_info": "1234569874566321",
+      "donation_amount": 12,
+      "pot_id": 1,
+      "id": 3
+    },
+    {
+      "name": "makrem m",
+      "email": "m@g.co",
+      "bank_info": "1234569874566321",
+      "donation_amount": 10,
+      "pot_id": 1,
+      "id": 4
+    },
+    {
+      "name": "chayma bah",
+      "email": "cg@gmail.com",
+      "bank_info": "1212121212121221",
+      "donation_amount": 10,
+      "pot_id": 3,
+      "id": 5
     }
   ],
   "categories": [
@@ -64,7 +92,7 @@
       "description": "Funding for a local sports event",
       "category": "Sports",
       "target_amount": 5000,
-      "current_amount": 2500,
+      "current_amount": 2522,
       "owner": 1,
       "contributors": [
         1,
@@ -88,6 +116,51 @@
       "img_source": "../assets/img/education.jpg",
       "deadline": "2023-11-30",
       "start_date": "2023-01-15"
+    },
+    {
+      "id": 3,
+      "title": "Animal Rescue",
+      "description": "Rescuing tuxedo cat Tom",
+      "category": "Animals",
+      "target_amount": 5000,
+      "current_amount": 4210,
+      "owner": 2,
+      "contributors": [
+        1,
+        5
+      ],
+      "img_source": "../assets/img/animal.jpg",
+      "deadline": "2023-11-30",
+      "start_date": "2023-01-15"
+    },
+    {
+      "id": 3,
+      "title": "testPot",
+      "description": "",
+      "category": "Spor",
+      "target_amount": 1000,
+      "current_amount": 0,
+      "owner": 2622,
+      "contributors": [],
+      "img_source": "",
+      "deadline": "2023-11-26T09:17:00.175Z",
+      "start_date": "2023-11-26T09:17:00.175Z"
+    },
+    {
+      "id": 6,
+      "title": "Sports Event",
+      "description": "Funding for a local sports event",
+      "category": "Sports",
+      "target_amount": 5000,
+      "current_amount": 2500,
+      "owner": 2622,
+      "contributors": [
+        1,
+        2
+      ],
+      "img_source": "https://picsum.photos/id/103/800/450",
+      "deadline": "2023-12-31",
+      "start_date": "2023-01-01"
     }
   ]
 }

@@ -3,4 +3,6 @@ export interface Contributor {
   name: string;
   email: string;
   bank_info: string;
+  donation_amount: number;
+  pot_id: number;
 }
