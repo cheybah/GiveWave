@@ -14,6 +14,7 @@ import { SeparatorComponent } from './separator/separator.component';
 import { HowitworksComponent } from './howitworks/howitworks.component';
 import { ClicktopayformComponent } from './clicktopayform/clicktopayform.component';
 import { TeamComponent } from './team/team.component';
+import {ReactiveFormsModule} from "@angular/forms";
 
 
 
@@ -39,7 +40,8 @@ import { TeamComponent } from './team/team.component';
   ],
   imports: [
     CommonModule,
-    HomeRoutingModule
+    HomeRoutingModule,
+    ReactiveFormsModule
   ]
 })
 export class HomeModule { }

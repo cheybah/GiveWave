@@ -33,12 +33,22 @@
           <span class="amount-label calen"><i class="bi bi-calendar-check"></i>&nbsp;Deadline: {{ pot.deadline | date:'longDate' }}</span>
           <br>
           <span class="amount-label contributors-label"><i class="bi bi-people-fill"></i>&nbsp;Contributors: {{ pot.contributors.length  }}</span>
-          <form>
-            <h5 class="mt-4">Donation amount:</h5>
+          <form [formGroup]="donationForm" (ngSubmit)="redirectToClickToPay()">
+            <h5 class="mt-4">Donation Amount :</h5>
             <div class="form-group donation-input">
-              <input type="number" class="form-control" id="contribution" name="contribution">
-              <button type="submit" class="btn btn-primary" (click)="redirectToClickToPay()">Submit</button>
+              <input type="number" class="form-control" id="contribution" name="contribution" formControlName="contribution">
+              <button type="submit" class="btn btn-primary" [disabled]="donationForm.invalid">Submit</button>
             </div>
+            <br>
+            <div *ngIf="donationForm.get('contribution')?.invalid && (donationForm.get('contribution')?.dirty || donationForm.get('contribution')?.touched)" class="alert alert-danger">
+              <div *ngIf="donationForm.get('contribution')?.hasError('required')">
+                Donation amount is required.
+              </div>
+              <div *ngIf="donationForm.get('contribution')?.hasError('min')">
+                Amount should be > 0
+              </div>
+            </div>
+
           </form>
         </div>
       </div>
