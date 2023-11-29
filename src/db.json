@@ -118,6 +118,19 @@
       "start_date": "2023-01-15"
     },
     {
+      "id": 4,
+      "title": "testDog",
+      "description": "",
+      "category": "Animal",
+      "target_amount": 150,
+      "current_amount": 0,
+      "owner": 2622,
+      "contributors": [],
+      "img_source": "../assets/img/dog.jpg",
+      "deadline": "2023-11-28T13:35:11.471Z",
+      "start_date": "2023-11-28T13:35:11.471Z"
+    },
+    {
       "id": 3,
       "title": "Animal Rescue",
       "description": "Rescuing tuxedo cat Tom",
@@ -132,19 +145,6 @@
       "img_source": "../assets/img/animal.jpg",
       "deadline": "2023-11-30",
       "start_date": "2023-01-15"
-    },
-    {
-      "id": 3,
-      "title": "testPot",
-      "description": "",
-      "category": "Spor",
-      "target_amount": 1000,
-      "current_amount": 0,
-      "owner": 2622,
-      "contributors": [],
-      "img_source": "",
-      "deadline": "2023-11-26T09:17:00.175Z",
-      "start_date": "2023-11-26T09:17:00.175Z"
     },
     {
       "id": 6,
