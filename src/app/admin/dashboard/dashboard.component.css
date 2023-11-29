@@ -6,4 +6,160 @@
 .btn {
   padding: 3px 8px; /* Réduisez la taille du bouton */
   margin: 0 10px; /* Ajoutez de l'espace entre les boutons */
+  
 }
+
+.btn1 {
+  background-color: rgb(110, 40, 40) !important;
+  border-color: rgb(110, 40, 40) !important;;
+}
+
+
+.custom-dropdown {
+  position: relative;
+  margin-top: -3px;
+
+
+}
+
+.custom-dropdown .dropdown-menu {
+  background-color: rgb(240, 231, 231);
+  padding: 8px;
+}
+
+.custom-dropdown .dropdown-menu .form-check {
+  padding: 8px 20px;
+}
+
+.custom-dropdown .btn {
+  border-color: rgb(110, 40, 40);
+  color: rgb(110, 40, 40);
+}
+
+.custom-dropdown .btn:hover,
+.custom-dropdown .btn:focus {
+  border-color: rgb(110, 40, 40);
+  color: rgb(110, 40, 40);
+}
+
+.custom-dropdown .form-check-input {
+  margin-top: 2px;
+}
+
+.form-check-input:checked {
+  background-color:  rgb(110, 40, 40) !important;
+  border-color:  rgb(110, 40, 40) !important;
+}
+
+/* Modal display pot styling */
+.modal-content {
+  background: rgba(255, 255, 255);
+  border-radius: 16px;
+  overflow: hidden;
+  padding: 9px;
+}
+
+.modal-body1 {
+  background: rgba(241, 238, 238, 0.966);
+  border-radius: 16px;
+  overflow: hidden;
+  padding: 9px;
+}
+
+.modal-title {
+  color: black;
+  font-weight: bold; /* Add bold style */
+  font-size: 25px; /* Adjust font size as needed */
+}
+
+.donation-input {
+  display: flex;
+  align-items: center;
+}
+
+.img{
+  border-radius: 13px;
+  border-bottom: 1px solid #ccc;
+}
+
+.progress-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.progress-bar {
+  position: relative;
+  display: inline-block;
+  border-radius: 15px;
+  width: 100%;
+  height: 10px;
+  border: 1px solid #ccc;
+}
+
+.progress-indicator {
+  position: absolute;
+  display: block;
+  border-radius: 15px;
+  height: 100%;
+  background-color: rgb(110, 40, 40);
+}
+
+.amount-label {
+  display: inline-block;
+  margin-left: 10px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.p-c{
+  padding: 20px !important;
+}
+
+.mt-c{
+  margin-top: 0.5rem !important;
+}
+
+.titleS{
+  margin-bottom:24px !important;
+}
+
+.modal-header .btn-close {
+  --bs-btn-close-color: #000;
+  --bs-btn-close-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23000'%3e%3cpath d='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414z'/%3e%3c/svg%3e");
+  --bs-btn-close-opacity: 0.5;
+  --bs-btn-close-hover-opacity: 0.75;
+  --bs-btn-close-focus-shadow: 0 0 0 0.25rem rgba(72, 72, 73, 0.25);
+  --bs-btn-close-focus-opacity: 1;
+  --bs-btn-close-disabled-opacity: 0.25;
+  --bs-btn-close-white-filter: invert(1) grayscale(100%) brightness(200%);
+  box-sizing: content-box;
+  width: 0.8em !important; /* Adjust size as needed */
+  height: 0.8em !important; /* Adjust size as needed */
+  padding: 0.2em !important; /* Adjust padding as needed */
+  color: var(--bs-btn-close-color);
+  background: transparent var(--bs-btn-close-bg) center/0.8em auto no-repeat; /* Adjust background size as needed */
+  border: 0;
+  border-radius: 0.25rem !important; /* Adjust border-radius as needed */
+  opacity: var(--bs-btn-close-opacity);
+  font-weight: bold; /* Add bold style */
+  margin : 1px !important;
+}
+
+.modal-header .btn-close:hover {
+  color: var(--bs-btn-close-color);
+  text-decoration: none;
+  opacity: var(--bs-btn-close-hover-opacity);
+}
+.modal-header .btn-close:focus {
+  outline: 0;
+  box-shadow: var(--bs-btn-close-focus-shadow);
+  opacity: var(--bs-btn-close-focus-opacity);
+}
+
+
+
+
+
+
+

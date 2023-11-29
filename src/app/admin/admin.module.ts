@@ -7,6 +7,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { SignupComponent } from './signup/signup.component';
 import {HomeModule} from "../home/home.module";
 import {FormsModule} from "@angular/forms";
+import { ReactiveFormsModule } from '@angular/forms';
+
+
 
 
 
@@ -20,6 +23,7 @@ import {FormsModule} from "@angular/forms";
   ],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     AdminRoutingModule,
     HomeModule,
     FormsModule,

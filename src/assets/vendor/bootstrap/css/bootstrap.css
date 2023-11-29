@@ -2425,8 +2425,8 @@ textarea.form-control-lg {
   box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
 }
 .form-check-input:checked {
-  background-color: #0d6efd;
-  border-color: #0d6efd;
+  background-color:  rgb(110, 40, 40);
+  border-color:  rgb(110, 40, 40);
 }
 .form-check-input:checked[type=checkbox] {
   --bs-form-check-bg-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/%3e%3c/svg%3e");
@@ -2435,8 +2435,8 @@ textarea.form-control-lg {
   --bs-form-check-bg-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='2' fill='%23fff'/%3e%3c/svg%3e");
 }
 .form-check-input[type=checkbox]:indeterminate {
-  background-color: #0d6efd;
-  border-color: #0d6efd;
+  background-color:  rgb(110, 40, 40);
+  border-color:  rgb(110, 40, 40);
   --bs-form-check-bg-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10h8'/%3e%3c/svg%3e");
 }
 .form-check-input:disabled {
@@ -5364,14 +5364,15 @@ textarea.form-control-lg {
   --bs-btn-close-disabled-opacity: 0.25;
   --bs-btn-close-white-filter: invert(1) grayscale(100%) brightness(200%);
   box-sizing: content-box;
-  width: 1em;
-  height: 1em;
-  padding: 0.25em 0.25em;
+  width: 0.8em; /* Adjust size as needed */
+  height: 0.8em; /* Adjust size as needed */
+  padding: 0.2em; /* Adjust padding as needed */
   color: var(--bs-btn-close-color);
-  background: transparent var(--bs-btn-close-bg) center/1em auto no-repeat;
+  background: transparent var(--bs-btn-close-bg) center/0.8em auto no-repeat; /* Adjust background size as needed */
   border: 0;
-  border-radius: 0.375rem;
+  border-radius: 0.25rem; /* Adjust border-radius as needed */
   opacity: var(--bs-btn-close-opacity);
+  font-weight: bold; /* Add bold style */
 }
 .btn-close:hover {
   color: var(--bs-btn-close-color);

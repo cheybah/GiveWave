@@ -14,6 +14,9 @@
       <ul>
         <li><a class="nav-link scrollto active" (click)="goToHome()">Home</a></li>
       </ul>
+      <ul>
+        <li><a class="nav-link" (click)="logOut()">Log Out</a></li>
+      </ul>
       <i class="bi bi-list mobile-nav-toggle"></i>
     </nav>
     <!-- .navbar -->
@@ -29,7 +32,7 @@
   </style>
   <div class="container position-relative">
     <h1>Welcome, {{user.name}}</h1>
-    <h2>We are people who like to help</h2>
+    <h2>Change is one step far from you!</h2>
     <a class="btn-get-started scrollto" (click)="scrollToSection('listeofpot')">Consult your Pots</a>
     <a  class="btn-get-started scrollto" (click)="scrollToSection('formpot')">Start Campaign</a>
   </div>
@@ -39,7 +42,7 @@
   <div class="section-title">
     <span>List Pots</span>
     <h2>List Pots</h2>
-    <p>Check out the available pots for donation. Every penny is worth a change !</p>
+    <p>Consult, create and make changes however you want</p>
   </div>
 
   <div class="table-container">
@@ -93,42 +96,75 @@
   <div class="section-title">
     <span>Form Pots</span>
     <h2>Form Pots</h2>
-    <p>Check out the available pots for donation. Every penny is worth a change !</p>
+    <p>Fill out the form below to start your journey with GiveWave!</p>
   </div>
   <div class="container">
     <div class="row justify-content-center">
       <div class="card shadow col-lg-8">
           <div class="card-body">
-            <form (ngSubmit)="onSubmitPot()">
+            <form [formGroup]="potForm" (ngSubmit)="onSubmitPot()">
               <div class="row">
                 <div class="col-md-6 mb-3">
-                  <label for="title" class="form-label">Title</label>
-                  <input type="text" class="form-control" id="title" [(ngModel)]="newPot.title" name="title">
+                  <div class="form-group">
+                    <label for="title">Title:</label>
+                    <input type="text" class="form-control" id="title" formControlName="title" [(ngModel)]="newPot.title">
+                    <div *ngIf="potForm.get('title')?.invalid && potForm.get('title')?.dirty" class="text-danger">
+                      <div *ngIf="potForm.get('title')?.hasError('required')">Title is required.</div>
+                    </div>
                 </div>
-                <div class="col-md-6 mb-3">
-                  <label for="category" class="form-label">Category</label>
-                  <input type="text" class="form-control" id="category" [(ngModel)]="newPot.category" name="category">
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="category" class="form-label">Category</label>
+                <div class="custom-dropdown">
+                  <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="categoryDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {{ newPot.category ? newPot.category : 'Select Category' }}
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="categoryDropdown">
+                    <div class="form-check" *ngFor="let category of categories">
+                      <input class="form-check-input" type="checkbox" id="{{ category.id }}" [checked]="newPot.category === category.value" (change)="onCheckboxChange(category.value)">
+                      <label class="form-check-label" for="{{ category.id }}">{{ category.label }}</label>
+                    </div>
+                  </div>
                 </div>
+              </div>
+            
+            
+            
               </div>
               <div class="row">
                 <div class="col-md-6 mb-3">
-                  <label for="target_amount" class="form-label">Target Amount</label>
-                  <input type="number" class="form-control" id="target_amount" [(ngModel)]="newPot.target_amount" name="target_amount">
+                  <div class="form-group">
+                  <label for="target_amount">Target Amount:</label>
+                  <input type="number" class="form-control" id="target_amount" formControlName="target_amount" [(ngModel)]="newPot.target_amount">
+                  <div *ngIf="potForm.get('target_amount')?.invalid && potForm.get('target_amount')?.dirty" class="text-danger">
+                      <div *ngIf="potForm.get('target_amount')?.hasError('required')">Target Amount is required.</div>
+                      <div *ngIf="potForm.get('target_amount')?.hasError('min')">Target Amount should be superior to 0.</div>
+                  </div>
                 </div>
-                <div class="col-md-6 mb-3">
-                  <label for="deadline" class="form-label">Deadline</label>
-                  <input type="date" class="form-control" id="deadline" [(ngModel)]="newPot.deadline" name="deadline">
-                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="deadline" class="form-label">Deadline</label>
+                <input
+                  type="date"
+                  class="form-control"
+                  id="deadline"
+                  [(ngModel)]="newPot.deadline"
+                  name="deadline"
+                  min="{{ minDate() }}"
+                  required
+                />
+              </div>
               </div>
               <div class="mb-3">
                 <label for="img_source" class="form-label">Image Source</label>
-                <input type="text" class="form-control" id="img_source" [(ngModel)]="newPot.img_source" name="img_source">
-              </div>
+                <input type="file" class="form-control" id="img_source" (change)="onFileSelected($event)" accept="image/*">
+              </div>  
               <div class="mb-3">
                 <label for="description" class="form-label">Description</label>
-                <textarea class="form-control" id="description" [(ngModel)]="newPot.description" name="description"></textarea>
+                <textarea class="form-control" id="description" [(ngModel)]="newPot.description" name="description" required></textarea>
+                <div class="invalid-feedback">Description is required.</div>
               </div>
-              <button type="submit" class="btn btn-primary">Submit</button>
+              <button type="submit" class="btn btn-primary btn1">Submit</button>
             </form>
           </div>
         </div>
@@ -138,20 +174,44 @@
 
 <!-- display pot modal -->
 <div class="modal fade" id="potModal" tabindex="-1" aria-labelledby="potModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="potModalLabel">{{selectedPot.title}}</h5>
+        <h5 class="modal-title" id="potModalLabel">{{ selectedPot.title }} Pot Infomation</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
-        <!-- Ajoutez ici les détails du pot que vous souhaitez afficher -->
-        <p>{{selectedPot.description}}</p>
-        <p>Category: {{selectedPot.category}}</p>
-        <p>Target Amount: {{selectedPot.target_amount}}</p>
-        <p>Current Amount: {{selectedPot.current_amount}}</p>
-        <p>Start Date: {{selectedPot.start_date | date:'dd MMMM yyyy'}}</p>
-        <p>Deadline: {{selectedPot.deadline | date:'dd MMMM yyyy'}}</p>
+      <div class="modal-body1">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-lg-6">
+              <img class="w-100 shadow img" [src]="selectedPot.img_source" alt="{{ selectedPot.title }}" />
+            </div>
+            <div class="col-lg-6">
+              <div class="pot-container1 p-c mt-c">
+                <div class="pot-header">
+                  <h2 class="titleS"><b>{{ selectedPot.title }}</b></h2>
+                </div>
+                <h5>Description</h5>
+                <p>{{ selectedPot.description }}</p>
+                <h5 class="mt-4">Category</h5>
+                <p>{{ selectedPot.category }}</p>
+                <h5 class="mt-4">Donation progress</h5>
+                <div class="progress-container">
+                  <span class="progress-bar">
+                    <span class="progress-indicator" [style.width]="calculateProgress(selectedPot)"></span>
+                  </span>
+                </div>
+                <div class="amount-label-container">
+                  <span class="amount-label amount-left"><i class="bi bi-cash-stack"></i>&nbsp;Current: {{ selectedPot.current_amount }}</span>
+                  <span class="amount-label amount-right"><i class="bi bi-bullseye"></i>&nbsp;Target: {{ selectedPot.target_amount }}</span>
+                </div>
+                <span class="amount-label calen"><i class="bi bi-calendar-check"></i>&nbsp;Deadline: {{ selectedPot.deadline | date:'longDate' }}</span>
+                <br>
+                <span class="amount-label contributors-label"><i class="bi bi-people-fill"></i>&nbsp;Contributors: {{ selectedPot.contributors.length }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -159,6 +219,7 @@
     </div>
   </div>
 </div>
+
 
 <!-- edit pot modal -->
 <div class="modal fade" id="editPotModal" tabindex="-1" aria-labelledby="editPotModalLabel" aria-hidden="true">
@@ -169,18 +230,18 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form>
+        <form [formGroup]="potForm">
           <div class="row">
             <div class="col">
               <div class="mb-3">
                 <label for="title_e" class="form-label">Title</label>
-                <input type="text" class="form-control" id="title_e" name="title" [(ngModel)]="selectedPot.title">
+                <input type="text" class="form-control" id="title_e" name="title" [(ngModel)]="selectedPot.title" disabled>
               </div>
             </div>
             <div class="col">
               <div class="mb-3">
                 <label for="category_e" class="form-label">Category</label>
-                <input type="text" class="form-control" id="category_e" name="category" [(ngModel)]="selectedPot.category">
+                <input type="text" class="form-control" id="category_e" name="category" [(ngModel)]="selectedPot.category" disabled>
               </div>
             </div>
           </div>
@@ -209,10 +270,52 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" (click)="updatePot()" data-bs-dismiss="modal">Save changes</button>
+        <button type="button" class="btn btn-success" (click)="updatePot()" data-bs-dismiss="modal">Save changes</button>
+      </div> 
+    </div>
+  </div>
+</div>
+
+<!-- confirmation modal -->
+<div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="confirmationModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="confirmationModalLabel">Confirm Update</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Are you sure you want to update the pot?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-success" (click)="confirmUpdate()" data-bs-dismiss="modal">Update</button>
       </div>
     </div>
   </div>
 </div>
+
+
+
+<!-- confirmation modal for delete -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deleteModalLabel">Confirm Delete</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Are you sure you want to delete the pot?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-danger" (click)="confirmDelete()" data-bs-dismiss="modal">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 
 <app-footer></app-footer>
