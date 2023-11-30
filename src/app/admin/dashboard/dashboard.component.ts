@@ -58,9 +58,12 @@ export class DashboardComponent implements OnInit{
     private formBuilder: FormBuilder // Inject FormBuilder in the constructor
   ) {
     this.potForm = this.formBuilder.group({
-      target_amount: ['', [Validators.required, Validators.min(1)]],
-      title: ['', [Validators.required]]
-        });
+      title: [this.selectedPot.title, Validators.required],
+      category: [this.selectedPot.category, Validators.required],
+      target_amount: [this.selectedPot.target_amount, [Validators.required, Validators.min(1)]],
+      deadline: [this.selectedPot.deadline, Validators.required],
+      description: [this.selectedPot.description, Validators.required] // Ensure that description is properly initialized
+    });
   }
 
   getUserPots(): void {
@@ -103,7 +106,15 @@ export class DashboardComponent implements OnInit{
     }
   }
   OpenEditPot(pot: Pot): void {
-    this.selectedPot = {...pot};
+    this.selectedPot = { ...pot };
+    // Set the form values
+    this.potForm.setValue({
+      title: pot.title,
+      category: pot.category,
+      target_amount: pot.target_amount,
+      deadline: pot.deadline,
+      description: pot.description
+    });
     const modalElement = document.getElementById('editPotModal');
     if (modalElement) {
       const modal = new bootstrap.Modal(modalElement);
@@ -111,6 +122,15 @@ export class DashboardComponent implements OnInit{
     }
   }
   updatePot(): void {
+      // Get the form values
+      const formValues = this.potForm.value;
+
+      // Update the selectedPot object
+      this.selectedPot.title = formValues.title;
+      this.selectedPot.category = formValues.category;
+      this.selectedPot.target_amount = formValues.target_amount;
+      this.selectedPot.deadline = formValues.deadline;
+      this.selectedPot.description = formValues.description;
     // Open the confirmation modal
     const confirmationModalElement = document.getElementById('confirmationModal');
     if (confirmationModalElement) {
@@ -209,6 +229,10 @@ minDate(): string {
   return formattedDate;
 }
 
+isTitleCategoryDisabled(): boolean {
+  // Return 'true' if the form is in edit mode, otherwise 'false'
+  return !!this.selectedPot.id;
+}
 
 
 

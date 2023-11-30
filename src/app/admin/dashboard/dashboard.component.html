@@ -147,9 +147,9 @@
                 <input
                   type="date"
                   class="form-control"
-                  id="deadline"
                   [(ngModel)]="newPot.deadline"
-                  name="deadline"
+                  id="deadline"
+                  formControlName="deadline" 
                   min="{{ minDate() }}"
                   required
                 />
@@ -161,8 +161,7 @@
               </div>  
               <div class="mb-3">
                 <label for="description" class="form-label">Description</label>
-                <textarea class="form-control" id="description" [(ngModel)]="newPot.description" name="description" required></textarea>
-                <div class="invalid-feedback">Description is required.</div>
+                <textarea class="form-control" id="description" name="description" formControlName="description" [(ngModel)]="newPot.description"></textarea>
               </div>
               <button type="submit" class="btn btn-primary btn1">Submit</button>
             </form>
@@ -235,13 +234,13 @@
             <div class="col">
               <div class="mb-3">
                 <label for="title_e" class="form-label">Title</label>
-                <input type="text" class="form-control" id="title_e" name="title" [(ngModel)]="selectedPot.title" disabled>
+                <input type="text" class="form-control" id="title_e" name="title" formControlName="title" [attr.disabled]="isTitleCategoryDisabled()">
               </div>
             </div>
             <div class="col">
               <div class="mb-3">
                 <label for="category_e" class="form-label">Category</label>
-                <input type="text" class="form-control" id="category_e" name="category" [(ngModel)]="selectedPot.category" disabled>
+                <input type="text" class="form-control" id="category_e" name="category" formControlName="category" [attr.disabled]="isTitleCategoryDisabled()">
               </div>
             </div>
           </div>
@@ -250,22 +249,21 @@
             <div class="col">
               <div class="mb-3">
                 <label for="target_amount_e" class="form-label">Target Amount</label>
-                <input type="number" class="form-control" id="target_amount_e" name="target_amount" [(ngModel)]="selectedPot.target_amount">
+                <input type="number" class="form-control" id="target_amount_e" name="target_amount" formControlName="target_amount">
               </div>
             </div>
             <div class="col">
               <div class="mb-3">
                 <label for="deadline_e" class="form-label">Deadline</label>
-                <input type="date" class="form-control" id="deadline_e" name="deadline" [(ngModel)]="selectedPot.deadline">
+                <input type="date" class="form-control" id="deadline_e" name="deadline" formControlName="deadline">
               </div>
             </div>
           </div>
 
           <div class="mb-3">
             <label for="description_e" class="form-label">Description</label>
-            <textarea class="form-control" id="description_e" name="description" [(ngModel)]="selectedPot.description"></textarea>
+            <textarea class="form-control" id="description_e" name="description" formControlName="description"></textarea>
           </div>
-
         </form>
       </div>
       <div class="modal-footer">

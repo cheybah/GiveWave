@@ -31,6 +31,14 @@
       "email": "bah@gmail.com",
       "password": "Password1234",
       "bank_info": ""
+    },
+    {
+      "id": 1370,
+      "name": "aaa",
+      "lastname": "bbbbbbb",
+      "email": "cddd@dfd.co",
+      "password": "464545dfd",
+      "bank_info": "645"
     }
   ],
   "contributors": [
@@ -161,6 +169,32 @@
       "img_source": "https://picsum.photos/id/103/800/450",
       "deadline": "2023-12-31",
       "start_date": "2023-01-01"
+    },
+    {
+      "id": 7,
+      "title": "Animaa",
+      "description": "fefef 1",
+      "category": "Animal",
+      "target_amount": 1555,
+      "current_amount": 0,
+      "owner": 2622,
+      "contributors": [],
+      "img_source": "../assets/img/animal.jpg",
+      "deadline": "2023-12-09",
+      "start_date": "2023-11-29T11:27:34.382Z"
+    },
+    {
+      "id": 8,
+      "title": "test1",
+      "description": "zdee",
+      "category": "Sports",
+      "target_amount": 150000,
+      "current_amount": 0,
+      "owner": 2622,
+      "contributors": [],
+      "img_source": "../assets/img/wedding.jpg",
+      "deadline": "2023-12-09",
+      "start_date": "2023-11-30T14:28:47.338Z"
     }
   ]
 }

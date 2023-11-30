@@ -27,10 +27,13 @@
         <div class="inputBox">
           <input type="email" name="email" [(ngModel)]="user.email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" #email="ngModel" value="">
           <label>Email</label>
-          <small *ngIf="user.email && !user.email.match('[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-z]{2,}$')" class="text-danger">Invalid email format</small>
+          <small *ngIf="email.invalid && (email.dirty || email.touched)" class="text-danger">
+            <div *ngIf="email.errors?.['required']">Email is required.</div>
+            <div *ngIf="email.errors?.['pattern']">Invalid email format</div>
+          </small>        
         </div>
         <div class="inputBox">
-          <input type="text" name="iban" [(ngModel)]="user.bank_info" required value="">
+          <input type="text" name="iban" [(ngModel)]="user.bank_info" required pattern=".{16}" value="">
           <label>IBAN</label>
         </div>
         <div class="inputBox">
