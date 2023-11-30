@@ -24,7 +24,9 @@ export class DashboardComponent implements OnInit{
     bank_info: '',
   };
   userPots: Pot[]= [];
-  newPot: Pot = {
+  potForm: FormGroup;
+  potEditForm: FormGroup;
+  selectedPot: Pot = {
     id: 0,
     title: '',
     description: '',
@@ -37,12 +39,6 @@ export class DashboardComponent implements OnInit{
     deadline: new Date(),
     start_date: new Date(),
   };
-  selectedPot: Pot = {...this.newPot};
-
-  potForm: FormGroup;
-
-  
-
   categories = [
     { id: 'categoryAnimal', value: 'Animal', label: 'Animal' },
     { id: 'categorySports', value: 'Sports', label: 'Sports' },
@@ -55,24 +51,30 @@ export class DashboardComponent implements OnInit{
     private potService: PotService,
     private authService: AuthService,
     private router: Router,
-    private formBuilder: FormBuilder // Inject FormBuilder in the constructor
+    private formBuilder: FormBuilder
   ) {
     this.potForm = this.formBuilder.group({
-      title: [this.selectedPot.title, Validators.required],
-      category: [this.selectedPot.category, Validators.required],
-      target_amount: [this.selectedPot.target_amount, [Validators.required, Validators.min(1)]],
-      deadline: [this.selectedPot.deadline, Validators.required],
-      description: [this.selectedPot.description, Validators.required] // Ensure that description is properly initialized
+      title: ['', Validators.required],
+      category: [null, Validators.required],
+      target_amount: ['', [Validators.required, Validators.min(1)]],
+      deadline: ['', Validators.required],
+      img_source: [''],
+      description: ['', Validators.required]
+    });
+    this.potEditForm = this.formBuilder.group({
+      title: ['', Validators.required],
+      category: [null, Validators.required],
+      target_amount: ['', [Validators.required, Validators.min(1)]],
+      deadline: ['', Validators.required],
+      description: ['', Validators.required]
     });
   }
-
   getUserPots(): void {
     this.potService.getUserPots(this.userId).subscribe(pots => {
       this.userPots = pots;
-      console.log(this.userPots);
+      console.log('list of pots :', this.userPots);
     });
   }
-
   ngOnInit(): void {
     this.userId = Number(this.route.snapshot.paramMap.get('id'));
     this.authService.getUserById(this.userId).subscribe(user_db => {
@@ -80,23 +82,45 @@ export class DashboardComponent implements OnInit{
     })
     this.getUserPots();
   }
-
-  createPot(): void {
+  goToCreatePot(): void {
     this.scrollToSection('formpot');
   }
   onSubmitPot() {
-    // this.newPot.id = Math.floor(1000 + Math.random() * 9000);
-    this.newPot.owner = this.userId;
+    if (this.potForm.valid) {
+      const newP = {
+        id: null,
+        title: this.potForm.value.title,
+        description: this.potForm.value.description,
+        category: this.potForm.value.category,
+        target_amount: this.potForm.value.target_amount,
+        current_amount: 0,
+        owner: this.userId,
+        contributors: [],
+        img_source: this.potForm.value.img_source,
+        deadline: this.potForm.value.deadline,
+        start_date: new Date(),
+      };
 
-    this.potService.createPot(this.newPot).subscribe(pot =>{
-      console.log('pot added successfully');
-      this.scrollToSection('listeofpot');
+      this.potService.createPot(newP).subscribe((pot) => {
+        console.log('pot added successfully', newP);
+        this.scrollToSection('listeofpot');
+        // Rafraîchir la liste des pots
+        this.getUserPots();
+      });
+    } else {
+      this.markFormGroupTouched(this.potForm);
+    }
+  }
+  private markFormGroupTouched(formGroup: FormGroup) {
+    (Object as any).values(formGroup.controls).forEach((control: any) => {
+      control.markAsTouched();
 
-      // Rafraîchir la liste des pots
-      this.getUserPots();
-
+      if (control.controls) {
+        this.markFormGroupTouched(control);
+      }
     });
   }
+
   displayPot(pot: Pot): void {
     this.selectedPot = pot;
     const modalElement = document.getElementById('potModal');
@@ -107,8 +131,8 @@ export class DashboardComponent implements OnInit{
   }
   OpenEditPot(pot: Pot): void {
     this.selectedPot = { ...pot };
-    // Set the form values
-    this.potForm.setValue({
+
+    this.potEditForm.setValue({
       title: pot.title,
       category: pot.category,
       target_amount: pot.target_amount,
@@ -122,15 +146,14 @@ export class DashboardComponent implements OnInit{
     }
   }
   updatePot(): void {
-      // Get the form values
-      const formValues = this.potForm.value;
+    const formValues = this.potEditForm.value;
 
       // Update the selectedPot object
-      this.selectedPot.title = formValues.title;
-      this.selectedPot.category = formValues.category;
-      this.selectedPot.target_amount = formValues.target_amount;
-      this.selectedPot.deadline = formValues.deadline;
-      this.selectedPot.description = formValues.description;
+    this.selectedPot.title = formValues.title;
+    this.selectedPot.category = formValues.category;
+    this.selectedPot.target_amount = formValues.target_amount;
+    this.selectedPot.deadline = formValues.deadline;
+    this.selectedPot.description = formValues.description;
     // Open the confirmation modal
     const confirmationModalElement = document.getElementById('confirmationModal');
     if (confirmationModalElement) {
@@ -138,13 +161,12 @@ export class DashboardComponent implements OnInit{
       confirmationModal.show();
     }
   }
-  
   confirmUpdate(): void {
     // Call the actual update function
     this.potService.updatePot(this.selectedPot).subscribe(() => {
       console.log('Pot updated successfully');
       this.getUserPots();
-  
+
       // Hide the edit modal
       const editModalElement = document.getElementById('editPotModal');
       if (editModalElement) {
@@ -153,11 +175,10 @@ export class DashboardComponent implements OnInit{
       }
     });
   }
-  
   deletePot(pot: Pot): void {
     // Set the selected pot for deletion
     this.selectedPot = pot;
-  
+
     // Open the confirmation modal
     const deleteModalElement = document.getElementById('deleteModal');
     if (deleteModalElement) {
@@ -165,7 +186,6 @@ export class DashboardComponent implements OnInit{
       deleteModal.show();
     }
   }
-  
   confirmDelete(): void {
     // Call the actual delete function
     if (this.selectedPot) {
@@ -181,45 +201,36 @@ export class DashboardComponent implements OnInit{
       deleteModal.hide();
     }
   }
-
   scrollToSection(sectionId: string) {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   }
-
   goToHome(): void {
     this.router.navigate(['/home']);
   }
-
   logOut(): void {
     this.router.navigate(['/login']);
   }
-
   onFileSelected(event: any): void {
     const fileInput = event.target;
     if (fileInput.files.length > 0) {
         const file = fileInput.files[0];
         // Assuming you have an "assets" folder in the root of your Angular project
         const imagePath = `../assets/img/${file.name}`;
-        this.newPot.img_source = imagePath;
+        this.potForm.value.img_source = imagePath;
 
         // You can log or display the imagePath if needed
         console.log('Selected Image Path:', imagePath);
     }
 }
 
-onCheckboxChange(category: string) {
-  this.newPot.category = category;
-}
-
-calculateProgress(pot: any): string {
+  calculateProgress(pot: any): string {
   const progress = (pot.current_amount / pot.target_amount) * 100;
   return progress + '%';
 }
-
-minDate(): string {
+  minDate(): string {
   // Get the current date
   const currentDate = new Date();
 
@@ -228,12 +239,8 @@ minDate(): string {
 
   return formattedDate;
 }
-
-isTitleCategoryDisabled(): boolean {
+  isTitleCategoryDisabled(): boolean {
   // Return 'true' if the form is in edit mode, otherwise 'false'
   return !!this.selectedPot.id;
 }
-
-
-
 }

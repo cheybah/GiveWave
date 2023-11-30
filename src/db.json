@@ -126,19 +126,6 @@
       "start_date": "2023-01-15"
     },
     {
-      "id": 4,
-      "title": "testDog",
-      "description": "",
-      "category": "Animal",
-      "target_amount": 150,
-      "current_amount": 0,
-      "owner": 2622,
-      "contributors": [],
-      "img_source": "../assets/img/dog.jpg",
-      "deadline": "2023-11-28T13:35:11.471Z",
-      "start_date": "2023-11-28T13:35:11.471Z"
-    },
-    {
       "id": 3,
       "title": "Animal Rescue",
       "description": "Rescuing tuxedo cat Tom",
@@ -157,7 +144,7 @@
     {
       "id": 6,
       "title": "Sports Event",
-      "description": "Funding for a local sports event",
+      "description": "j",
       "category": "Sports",
       "target_amount": 5000,
       "current_amount": 2500,
@@ -167,34 +154,60 @@
         2
       ],
       "img_source": "https://picsum.photos/id/103/800/450",
-      "deadline": "2023-12-31",
+      "deadline": "2023-12-01",
       "start_date": "2023-01-01"
     },
     {
       "id": 7,
-      "title": "Animaa",
-      "description": "fefef 1",
-      "category": "Animal",
-      "target_amount": 1555,
+      "title": "testPot",
+      "description": "fd",
+      "category": true,
+      "target_amount": 2,
       "current_amount": 0,
       "owner": 2622,
       "contributors": [],
-      "img_source": "../assets/img/animal.jpg",
-      "deadline": "2023-12-09",
-      "start_date": "2023-11-29T11:27:34.382Z"
+      "img_source": "",
+      "deadline": "2023-12-01",
+      "start_date": "2023-11-30T19:11:24.426Z"
     },
     {
       "id": 8,
-      "title": "test1",
-      "description": "zdee",
-      "category": "Sports",
-      "target_amount": 150000,
+      "title": "Élève Ingénieur",
+      "description": "kkkkkkkkk",
+      "category": true,
+      "target_amount": 1,
       "current_amount": 0,
       "owner": 2622,
       "contributors": [],
-      "img_source": "../assets/img/wedding.jpg",
-      "deadline": "2023-12-09",
-      "start_date": "2023-11-30T14:28:47.338Z"
+      "img_source": "",
+      "deadline": "2023-12-03",
+      "start_date": "2023-11-30T19:34:26.458Z"
+    },
+    {
+      "id": 9,
+      "title": "Élève Ingénieur",
+      "description": "1hgjk",
+      "category": true,
+      "target_amount": 1,
+      "current_amount": 0,
+      "owner": 2622,
+      "contributors": [],
+      "img_source": "",
+      "deadline": "2023-12-01",
+      "start_date": "2023-11-30T19:37:38.124Z"
+    },
+    {
+      "id": 10,
+      "title": "testPot1258",
+      "description": "hhhhhhhhhhh",
+      "category": "Animal",
+      "target_amount": 10,
+      "current_amount": 0,
+      "owner": 2622,
+      "contributors": [],
+      "img_source": "",
+      "deadline": "2023-12-08",
+      "start_date": "2023-11-30T19:54:03.186Z"
     }
   ]
 }

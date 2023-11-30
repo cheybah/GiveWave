@@ -41,12 +41,12 @@ export class ClicktopayformComponent implements OnInit{
     private router: Router
   ) {
     this.paymentForm = this.formBuilder.group({
-      firstName: ['', [Validators.required, Validators.pattern(/^[a-zA-Z\s]*$/)]],
-      lastName: ['', [Validators.required, Validators.pattern(/^[a-zA-Z\s]*$/)]],
+      firstName: ['', [Validators.required, Validators.pattern(/^[a-zA-Z \s]*$/)]],
+      lastName: ['', [Validators.required, Validators.pattern(/^[a-zA-Z \s]*$/)]],
       email: ['', [Validators.required, Validators.pattern(/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)]],
       saveInfo: [false],
       paymentMethod: ['credit', Validators.required],
-      ccName: ['', [Validators.required, Validators.pattern(/^[a-zA-Z\s]*$/)]],
+      ccName: ['', [Validators.required, Validators.pattern(/^[a-zA-Z \s]*$/)]],
       ccNumber: ['', [Validators.required, Validators.pattern(/^\d{16}$/)]], // 16 digits for credit card number
       ccExpiration: ['', [Validators.required, Validators.pattern(/^(0[1-9]|1[0-2])\/\d{2}$/)]], // MM/YY format
       ccCvv: ['', [Validators.required, Validators.pattern(/^\d{3}$/)]], // 3 digits for CVV
@@ -68,8 +68,8 @@ export class ClicktopayformComponent implements OnInit{
   }
 
   submitForm() {
-
     const contributorData = {
+      id: null,
       name: this.paymentForm.value.firstName + ' ' + this.paymentForm.value.lastName,
       email: this.paymentForm.value.email,
       bank_info: this.paymentForm.value.ccNumber, // Replace with actual bank_info logic

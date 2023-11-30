@@ -23,9 +23,9 @@ export class PotService {
     const apiUrl = `${this.baseUrl}/pots?owner=${owner}`;
     return this.http.get<Pot[]>(apiUrl);
   }
-  createPot(pot: Pot): Observable<Pot> {
+  createPot(pot: any): Observable<any> {
     const apiUrl = `${this.baseUrl}/pots`;
-    return this.http.post<Pot>(apiUrl, pot);
+    return this.http.post<any>(apiUrl, pot);
   }
   updatePot(pot: Pot): Observable<Pot> {
     const url = `${this.baseUrl}/pots/${pot.id}`;
