@@ -40,20 +40,14 @@
               <div class="col-md-6 mb-3">
                 <label for="firstName">First name</label>
                 <input type="text" class="form-control"  id="firstName" formControlName="firstName" pattern="[a-zA-Z ]+" required>
-<!--                <div *ngIf="paymentForm.get('firstName')?.invalid && (paymentForm.get('firstName')?.dirty || paymentForm.get('firstName')?.touched)"-->
-<!--                     class="alert alert-danger" style="margin-top: 5px;">-->
-<!--                  <div *ngIf="paymentForm.get('firstName')?.hasError('required')">-->
-<!--                    Firstname is required.-->
-<!--                  </div>-->
-<!--                  <div *ngIf="paymentForm.get('firstName')?.hasError('pattern')">-->
-<!--                    Valid firstname is required and should contain only letters.-->
-<!--                  </div>-->
-<!--                </div>-->
-                <div *ngIf="paymentForm.get('firstName')?.invalid && (paymentForm.get('firstName')?.dirty || paymentForm.get('description')?.touched)" class="text-danger">
-                  <div *ngIf="paymentForm.get('firstName')?.hasError('required')" style="margin-top: 3px;">
-                    Firstname is required.</div>
-                  <div *ngIf="paymentForm.get('firstName')?.hasError('pattern')" style="margin-top: 3px;">
-                    Valid firstname is required and should contain only letters.</div>
+                <div *ngIf="paymentForm.get('firstName')?.invalid && (paymentForm.get('firstName')?.dirty || paymentForm.get('firstName')?.touched)"
+                     class="alert alert-danger" style="margin-top: 5px;">
+                  <div *ngIf="paymentForm.get('firstName')?.hasError('required')">
+                    Firstname is required.
+                  </div>
+                  <div *ngIf="paymentForm.get('firstName')?.hasError('pattern')">
+                    Valid firstname is required and should contain only letters.
+                  </div>
                 </div>
               </div>
               <div class="col-md-6 mb-3">
