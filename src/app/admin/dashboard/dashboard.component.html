@@ -47,7 +47,7 @@
 
   <div class="table-container">
     <div class="d-flex justify-content-end">
-      <button type="button" class="btn btn-primary" (click)="createPot()">
+      <button type="button" class="btn btn-primary" (click)="goToCreatePot()">
         <i class="bi bi-plus-circle fa-2x"></i> Add New Pot
       </button>
     </div>
@@ -106,62 +106,60 @@
               <div class="row">
                 <div class="col-md-6 mb-3">
                   <div class="form-group">
-                    <label for="title">Title:</label>
-                    <input type="text" class="form-control" id="title" formControlName="title" [(ngModel)]="newPot.title">
-                    <div *ngIf="potForm.get('title')?.invalid && potForm.get('title')?.dirty" class="text-danger">
-                      <div *ngIf="potForm.get('title')?.hasError('required')">Title is required.</div>
+                    <label for="title" class="form-label">Title :</label>
+                    <input type="text" class="form-control" id="title" formControlName="title">
+                    <div *ngIf="potForm.get('title')?.invalid && (potForm.get('title')?.dirty || potForm.get('title')?.touched)" class="text-danger">
+                      <div *ngIf="potForm.get('title')?.hasError('required')" style="margin-top: 3px;">Title is required.</div>
                     </div>
                 </div>
               </div>
-              <div class="col-md-6 mb-3">
-                <label for="category" class="form-label">Category</label>
-                <div class="custom-dropdown">
-                  <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="categoryDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    {{ newPot.category ? newPot.category : 'Select Category' }}
-                  </button>
-                  <div class="dropdown-menu" aria-labelledby="categoryDropdown">
-                    <div class="form-check" *ngFor="let category of categories">
-                      <input class="form-check-input" type="checkbox" id="{{ category.id }}" [checked]="newPot.category === category.value" (change)="onCheckboxChange(category.value)">
-                      <label class="form-check-label" for="{{ category.id }}">{{ category.label }}</label>
-                    </div>
+                <div class="col-md-6 mb-3">
+                  <label for="category" class="form-label">Category :</label>
+                  <select class="form-select" id="category" formControlName="category">
+                    <option value="" selected>Select Category</option>
+                    <option *ngFor="let category of categories" [value]="category.value">{{ category.label }}</option>
+                  </select>
+                  <div *ngIf="potForm.get('category')?.invalid && (potForm.get('category')?.dirty || potForm.get('category')?.touched)" class="text-danger">
+                    <div *ngIf="potForm.get('category')?.hasError('required')" style="margin-top: 3px;">Category is required.</div>
                   </div>
                 </div>
-              </div>
-            
-            
-            
               </div>
               <div class="row">
                 <div class="col-md-6 mb-3">
                   <div class="form-group">
-                  <label for="target_amount">Target Amount:</label>
-                  <input type="number" class="form-control" id="target_amount" formControlName="target_amount" [(ngModel)]="newPot.target_amount">
-                  <div *ngIf="potForm.get('target_amount')?.invalid && potForm.get('target_amount')?.dirty" class="text-danger">
+                    <label for="target_amount">Target Amount :</label>
+                    <input type="number" class="form-control" id="target_amount" formControlName="target_amount">
+                    <div *ngIf="potForm.get('target_amount')?.invalid && (potForm.get('target_amount')?.dirty || potForm.get('target_amount')?.touched)" class="text-danger">
                       <div *ngIf="potForm.get('target_amount')?.hasError('required')">Target Amount is required.</div>
                       <div *ngIf="potForm.get('target_amount')?.hasError('min')">Target Amount should be superior to 0.</div>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="col-md-6 mb-3">
-                <label for="deadline" class="form-label">Deadline</label>
-                <input
-                  type="date"
-                  class="form-control"
-                  [(ngModel)]="newPot.deadline"
-                  id="deadline"
-                  formControlName="deadline" 
-                  min="{{ minDate() }}"
-                  required
-                />
+                <div class="col-md-6 mb-3">
+                  <label for="deadline" class="form-label">Deadline :</label>
+                  <input
+                    type="date"
+                    class="form-control"
+                    id="deadline"
+                    formControlName="deadline"
+                    [min]="minDate()"
+                    required
+                  />
+                  <div *ngIf="potForm.get('deadline')?.invalid && (potForm.get('deadline')?.dirty || potForm.get('deadline')?.touched)" class="text-danger">
+                    <div *ngIf="potForm.get('deadline')?.hasError('required')">Deadline is required.</div>
+                  </div>
               </div>
               </div>
               <div class="mb-3">
                 <label for="img_source" class="form-label">Image Source</label>
-                <input type="file" class="form-control" id="img_source" (change)="onFileSelected($event)" accept="image/*">
-              </div>  
+                <input type="file" class="form-control" id="img_source" formControlName="img_source" (change)="onFileSelected($event)" accept="image/*">
+              </div>
               <div class="mb-3">
                 <label for="description" class="form-label">Description</label>
-                <textarea class="form-control" id="description" name="description" formControlName="description" [(ngModel)]="newPot.description"></textarea>
+                <textarea class="form-control" id="description" name="description" formControlName="description"></textarea>
+                <div *ngIf="potForm.get('description')?.invalid && (potForm.get('description')?.dirty || potForm.get('description')?.touched)" class="text-danger">
+                  <div *ngIf="potForm.get('description')?.hasError('required')" style="margin-top: 3px;">Description is required.</div>
+                </div>
               </div>
               <button type="submit" class="btn btn-primary btn1">Submit</button>
             </form>
@@ -219,7 +217,6 @@
   </div>
 </div>
 
-
 <!-- edit pot modal -->
 <div class="modal fade" id="editPotModal" tabindex="-1" aria-labelledby="editPotModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -229,33 +226,49 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form [formGroup]="potForm">
+        <form [formGroup]="potEditForm">
           <div class="row">
             <div class="col">
               <div class="mb-3">
                 <label for="title_e" class="form-label">Title</label>
                 <input type="text" class="form-control" id="title_e" name="title" formControlName="title" [attr.disabled]="isTitleCategoryDisabled()">
+                <small class="text-muted">Title can't be updated</small>
               </div>
             </div>
             <div class="col">
               <div class="mb-3">
                 <label for="category_e" class="form-label">Category</label>
                 <input type="text" class="form-control" id="category_e" name="category" formControlName="category" [attr.disabled]="isTitleCategoryDisabled()">
+                <small class="text-muted">Category can't be updated</small>
               </div>
             </div>
           </div>
-
           <div class="row">
             <div class="col">
               <div class="mb-3">
                 <label for="target_amount_e" class="form-label">Target Amount</label>
                 <input type="number" class="form-control" id="target_amount_e" name="target_amount" formControlName="target_amount">
+                <div *ngIf="potEditForm.get('target_amount')?.invalid" class="text-danger">
+                  <div *ngIf="potEditForm.get('target_amount')?.hasError('required')">Target Amount is required.</div>
+                  <div *ngIf="potEditForm.get('target_amount')?.hasError('min')">Target Amount should be superior to 0.</div>
+                </div>
               </div>
             </div>
             <div class="col">
               <div class="mb-3">
                 <label for="deadline_e" class="form-label">Deadline</label>
-                <input type="date" class="form-control" id="deadline_e" name="deadline" formControlName="deadline">
+                <input
+                  type="date"
+                  class="form-control"
+                  id="deadline_e"
+                  name="deadline"
+                  formControlName="deadline"
+                  [min]="minDate()"
+                  required
+                />
+                <div *ngIf="potEditForm.get('deadline')?.invalid" class="text-danger">
+                  <div *ngIf="potEditForm.get('deadline')?.hasError('required')">Deadline is required.</div>
+                </div>
               </div>
             </div>
           </div>
@@ -263,13 +276,18 @@
           <div class="mb-3">
             <label for="description_e" class="form-label">Description</label>
             <textarea class="form-control" id="description_e" name="description" formControlName="description"></textarea>
+            <div *ngIf="potEditForm.get('description')?.invalid" class="text-danger">
+              <div *ngIf="potEditForm.get('description')?.hasError('required')" style="margin-top: 3px;">Description is required.</div>
+            </div>
           </div>
         </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-success" (click)="updatePot()" data-bs-dismiss="modal">Save changes</button>
-      </div> 
+        <button type="button" class="btn btn-success" (click)="updatePot()"
+                data-bs-dismiss="modal"
+                [disabled]="potEditForm.invalid">Save changes</button>
+      </div>
     </div>
   </div>
 </div>
@@ -293,8 +311,6 @@
   </div>
 </div>
 
-
-
 <!-- confirmation modal for delete -->
 <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -313,7 +329,5 @@
     </div>
   </div>
 </div>
-
-
 
 <app-footer></app-footer>
