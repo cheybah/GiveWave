@@ -8,9 +8,7 @@ import { Pot } from '../models/Pot';
 })
 export class PotService {
   private baseUrl = 'http://localhost:3000';
-
   constructor(private http: HttpClient) { }
-
   getPots(): Observable<Pot[]> {
     const apiUrl = `${this.baseUrl}/pots`;
     return this.http.get<Pot[]>(apiUrl);

@@ -17,28 +17,20 @@
       "bank_info": "2345-6789-1011"
     },
     {
-      "id": 2622,
-      "name": "mehdi",
-      "lastname": "benghazi",
-      "email": "mehdi",
-      "password": "123",
-      "bank_info": "1234567889"
+      "id": 3,
+      "name": "Alice",
+      "lastname": "Smith",
+      "email": "alice.smith@example.com",
+      "password": "SecurePass789",
+      "bank_info": "5678-9012-1314"
     },
     {
-      "id": 6990,
-      "name": "chayma",
-      "lastname": "bah",
-      "email": "bah@gmail.com",
-      "password": "Password1234",
-      "bank_info": ""
-    },
-    {
-      "id": 1370,
-      "name": "aaa",
-      "lastname": "bbbbbbb",
-      "email": "cddd@dfd.co",
-      "password": "464545dfd",
-      "bank_info": "645"
+      "id": 4,
+      "name": "Bob",
+      "lastname": "Johnson",
+      "email": "bob.johnson@example.com",
+      "password": "Pass123word",
+      "bank_info": "6789-0123-1415"
     }
   ],
   "contributors": [
@@ -59,28 +51,28 @@
       "pot_id": 1
     },
     {
-      "name": "makrem ben",
-      "email": "mak@mak.co",
-      "bank_info": "1234569874566321",
-      "donation_amount": 12,
-      "pot_id": 1,
-      "id": 3
+      "id": 3,
+      "name": "Contributor3",
+      "email": "contributor3@example.com",
+      "bank_info": "7890-1234-1516",
+      "donation_amount": 75,
+      "pot_id": 2
     },
     {
-      "name": "makrem m",
-      "email": "m@g.co",
-      "bank_info": "1234569874566321",
-      "donation_amount": 10,
-      "pot_id": 1,
-      "id": 4
+      "id": 4,
+      "name": "Contributor4",
+      "email": "contributor4@example.com",
+      "bank_info": "8901-2345-1617",
+      "donation_amount": 50,
+      "pot_id": 2
     },
     {
-      "name": "chayma bah",
-      "email": "cg@gmail.com",
-      "bank_info": "1212121212121221",
-      "donation_amount": 10,
-      "pot_id": 3,
-      "id": 5
+      "id": 5,
+      "name": "Contributor5",
+      "email": "contributor5@example.com",
+      "bank_info": "9012-3456-1718",
+      "donation_amount": 125,
+      "pot_id": 2
     }
   ],
   "categories": [
@@ -91,6 +83,14 @@
     {
       "id": 2,
       "nom": "Education"
+    },
+    {
+      "id": 3,
+      "nom": "Health"
+    },
+    {
+      "id": 4,
+      "nom": "Environment"
     }
   ],
   "pots": [
@@ -102,10 +102,7 @@
       "target_amount": 5000,
       "current_amount": 2522,
       "owner": 1,
-      "contributors": [
-        1,
-        2
-      ],
+      "contributors": [1, 2],
       "img_source": "../assets/img/sports.jpg",
       "deadline": "2023-12-31",
       "start_date": "2023-01-01"
@@ -118,83 +115,36 @@
       "target_amount": 10000,
       "current_amount": 7500,
       "owner": 2,
-      "contributors": [
-        1
-      ],
+      "contributors": [1],
       "img_source": "../assets/img/education.jpg",
       "deadline": "2023-11-30",
       "start_date": "2023-01-15"
     },
     {
       "id": 3,
-      "title": "Animal Rescue",
-      "description": "Rescuing tuxedo cat Tom",
-      "category": "Animals",
-      "target_amount": 5000,
-      "current_amount": 4210,
-      "owner": 2,
-      "contributors": [
-        1,
-        5
-      ],
-      "img_source": "../assets/img/animal.jpg",
-      "deadline": "2023-11-30",
-      "start_date": "2023-01-15"
+      "title": "Healthcare Initiative",
+      "description": "Raising funds for community healthcare",
+      "category": "Health",
+      "target_amount": 8000,
+      "current_amount": 3500,
+      "owner": 3,
+      "contributors": [3, 4, 5],
+      "img_source": "../assets/img/healthcare.jpg",
+      "deadline": "2024-02-28",
+      "start_date": "2023-03-01"
     },
     {
-      "id": 6,
-      "title": "Sports Event",
-      "description": "fhjt",
-      "category": "Sports",
-      "target_amount": 5000,
-      "current_amount": 2500,
-      "owner": 2622,
-      "contributors": [
-        1,
-        2
-      ],
-      "img_source": "https://picsum.photos/id/103/800/450",
-      "deadline": "2023-12-09",
-      "start_date": "2023-01-01"
-    },
-    {
-      "id": 8,
-      "title": "Élève Ingénieur",
-      "description": "kkkkkkkkk",
-      "category": true,
-      "target_amount": 1,
-      "current_amount": 0,
-      "owner": 2622,
+      "id": 4,
+      "title": "Environmental Conservation",
+      "description": "Preserving local ecosystems",
+      "category": "Environment",
+      "target_amount": 12000,
+      "current_amount": 6000,
+      "owner": 4,
       "contributors": [],
-      "img_source": "",
-      "deadline": "2023-12-03",
-      "start_date": "2023-11-30T19:34:26.458Z"
-    },
-    {
-      "id": 9,
-      "title": "Élève Ingénieur",
-      "description": "1hgjk",
-      "category": true,
-      "target_amount": 1,
-      "current_amount": 0,
-      "owner": 2622,
-      "contributors": [],
-      "img_source": "",
-      "deadline": "2023-12-01",
-      "start_date": "2023-11-30T19:37:38.124Z"
-    },
-    {
-      "id": 10,
-      "title": "testPot1258",
-      "description": "hhhhhhhhhhh",
-      "category": "Animal",
-      "target_amount": 10,
-      "current_amount": 0,
-      "owner": 2622,
-      "contributors": [],
-      "img_source": "",
-      "deadline": "2023-12-08",
-      "start_date": "2023-11-30T19:54:03.186Z"
+      "img_source": "../assets/img/environment.jpg",
+      "deadline": "2023-10-15",
+      "start_date": "2023-04-01"
     }
   ]
 }

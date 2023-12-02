@@ -103,7 +103,7 @@
             <div class="row">
               <div class="col-md-6 mb-3">
                 <label for="ccName">Name on card</label>
-                <input type="text" class="form-control" id="ccName" placeholder="" formControlName="ccName" pattern="[a-zA-Z]+" required>
+                <input type="text" class="form-control" id="ccName" placeholder="" formControlName="ccName" pattern="[a-zA-Z ]+" required>
                 <small class="text-muted">Full name as displayed on card</small>
                 <div *ngIf="paymentForm.get('ccName')?.invalid && (paymentForm.get('ccName')?.dirty || paymentForm.get('ccName')?.touched)"
                      class="alert alert-danger" style="margin-top: 5px;">

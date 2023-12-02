@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import { Pot } from '../../models/Pot';
 import { PotService } from '../../services/pot.service';
 
@@ -8,16 +8,11 @@ import { PotService } from '../../services/pot.service';
   styleUrls: ['./publicpots.component.css']
 })
 export class PublicpotsComponent implements OnInit {
-  pots: Pot[] = [];
+  @Input() pubPots: Pot[] =[];
 
   constructor(private potService: PotService) { }
 
-  ngOnInit(): void {
-    this.potService.getPots().subscribe(pots => {
-      this.pots = pots;
-      console.log(this.pots);
-    });
-  }
+  ngOnInit(): void { }
 
   // Inside your component class
   calculateProgress(pot: any): string {

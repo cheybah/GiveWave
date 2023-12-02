@@ -6,7 +6,7 @@
   </div>
 </section>
 <section class="articles">
-  <article *ngFor="let pot of pots" [routerLink]="['/pot-details', pot.id]" >
+  <article *ngFor="let pot of pubPots" [routerLink]="['/pot-details', pot.id]" >
     <div class="article-wrapper">
       <figure>
         <img [src]="pot.img_source" alt="" />
@@ -19,7 +19,7 @@
         <p>
           <span class="progress-bar">
             <span class="progress-indicator" [style.width]="calculateProgress(pot)"></span>
-          </span>  
+          </span>
           <span class="amount-label"><i class="bi bi-bullseye"></i>&nbsp;Target: {{ pot.target_amount }}</span>
           <span class="amount-label"><i class="bi bi-cash-stack"></i>&nbsp;Current: {{ pot.current_amount }}</span><br>
           <br>
