@@ -7,7 +7,7 @@ import { Component, Renderer2, ElementRef } from '@angular/core';
   styleUrls: ['./homepage.component.css']
 })
 export class HomepageComponent {
-  constructor(private renderer: Renderer2, private el: ElementRef) { }
+  constructor() { }
 
   scrollToSection(sectionId: string) {
     const element = document.getElementById(sectionId);

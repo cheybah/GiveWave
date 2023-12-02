@@ -1,6 +1,3 @@
-import {Contributor} from "./Contributor";
-import {Category} from "./Category";
-import {User} from "./User";
 
 export interface Pot {
   id: number;

@@ -9,7 +9,6 @@ const routes: Routes = [
   { path: 'signup', component: SignupComponent },
   { path: 'dashboard/:id', component: DashboardComponent}
 ];
-
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]

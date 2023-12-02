@@ -11,7 +11,6 @@ const routes: Routes = [
   { path: 'click-to-pay/:id' , component: ClicktopayformComponent },
 
 ];
-
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]

@@ -20,9 +20,9 @@ export class PublicpotsComponent implements OnInit {
   }
 
   // Inside your component class
-calculateProgress(pot: any): string {
+  calculateProgress(pot: any): string {
   const progress = (pot.current_amount / pot.target_amount) * 100;
   return progress + '%';
-}
+  }
 
 }

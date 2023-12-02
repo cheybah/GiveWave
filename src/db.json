@@ -144,7 +144,7 @@
     {
       "id": 6,
       "title": "Sports Event",
-      "description": "j",
+      "description": "fhjt",
       "category": "Sports",
       "target_amount": 5000,
       "current_amount": 2500,
@@ -154,21 +154,8 @@
         2
       ],
       "img_source": "https://picsum.photos/id/103/800/450",
-      "deadline": "2023-12-01",
+      "deadline": "2023-12-09",
       "start_date": "2023-01-01"
-    },
-    {
-      "id": 7,
-      "title": "testPot",
-      "description": "fd",
-      "category": true,
-      "target_amount": 2,
-      "current_amount": 0,
-      "owner": 2622,
-      "contributors": [],
-      "img_source": "",
-      "deadline": "2023-12-01",
-      "start_date": "2023-11-30T19:11:24.426Z"
     },
     {
       "id": 8,

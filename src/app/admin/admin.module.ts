@@ -8,18 +8,11 @@ import { SignupComponent } from './signup/signup.component';
 import {HomeModule} from "../home/home.module";
 import {FormsModule} from "@angular/forms";
 import { ReactiveFormsModule } from '@angular/forms';
-
-
-
-
-
 @NgModule({
   declarations: [
     LoginComponent,
     DashboardComponent,
     SignupComponent,
-
-
   ],
   imports: [
     CommonModule,
@@ -27,7 +20,6 @@ import { ReactiveFormsModule } from '@angular/forms';
     AdminRoutingModule,
     HomeModule,
     FormsModule,
-
   ]
 })
 export class AdminModule { }

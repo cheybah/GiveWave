@@ -1,15 +1,12 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule, Routes } from '@angular/router';
+import { Routes } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from "@angular/common/http";
-import { AdminModule } from '../app/admin/admin.module';
-
-const appRoutes: Routes = [
-  // Add your app routes here
-];
+import { AdminModule } from './admin/admin.module';
+import {HomeModule} from "./home/home.module";
 
 @NgModule({
   declarations: [
@@ -18,6 +15,7 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     AdminModule,
+    HomeModule,
     AppRoutingModule,
     HttpClientModule
   ],

@@ -16,8 +16,6 @@ import { ClicktopayformComponent } from './clicktopayform/clicktopayform.compone
 import { TeamComponent } from './team/team.component';
 import {ReactiveFormsModule} from "@angular/forms";
 
-
-
 @NgModule({
   declarations: [
     HomepageComponent,
